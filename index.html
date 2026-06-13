@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>way2wise.ai — For engineering teams</title>
+<title>way2wise.ai — Learn wisely with AI</title>
 <link rel="icon" href="/favicon/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -30,12 +30,12 @@ html{scroll-behavior:smooth}
 body{font-family:var(--body);color:var(--ink);background:var(--white);line-height:1.65;font-size:17px}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-.narrow{max-width:780px}
 
+/* dashed path motif — from the card's green dashed border */
 .path-rule{border:none;border-top:2px dashed var(--wise-green);opacity:.55;width:72px;margin:0 0 20px}
 .path-rule.center{margin:0 auto 20px}
 
-/* nav */
+/* ---------- nav ---------- */
 header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--sky-2);z-index:50}
 nav{display:flex;align-items:center;justify-content:space-between;height:72px}
 .logo{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--way-blue);letter-spacing:-.01em}
@@ -43,48 +43,75 @@ nav{display:flex;align-items:center;justify-content:space-between;height:72px}
 .nav-links{display:flex;gap:32px;align-items:center;font-size:.95rem;font-weight:500}
 .nav-links a{color:var(--deep-blue);transition:color .2s}
 .nav-links a:hover{color:var(--way-blue)}
-.btn{display:inline-block;padding:11px 24px;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .15s,box-shadow .15s,background .2s;cursor:pointer;border:none;font-family:var(--body)}
+.btn{display:inline-block;padding:11px 24px;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .15s,box-shadow .15s,background .2s}
 .btn:focus-visible,a:focus-visible{outline:3px solid var(--way-blue);outline-offset:3px}
 .btn-primary{background:var(--way-blue);color:var(--white)}
 .btn-primary:hover{background:#3A66AE;transform:translateY(-1px)}
-.btn-ghost{border:2px dashed var(--wise-green);color:var(--wise-green);background:transparent}
+.btn-ghost{border:2px dashed var(--wise-green);color:var(--wise-green)}
 .btn-ghost:hover{background:#F0F8F4}
 
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--way-blue);color:var(--white);overflow:hidden}
+.hero .wm{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:clamp(11rem,30vw,24rem);color:rgba(255,255,255,.08);user-select:none;pointer-events:none;letter-spacing:-.04em;white-space:nowrap}
+.hero-inner{position:relative;padding:120px 0 110px;text-align:center}
+.hero h1{font-family:var(--display);font-weight:600;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.15;max-width:760px;margin:0 auto 20px;letter-spacing:-.015em}
+.hero p{font-size:1.18rem;max-width:580px;margin:0 auto 36px;color:#E4ECFA}
+.hero .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero .btn-primary{background:var(--white);color:var(--way-blue)}
+.hero .btn-primary:hover{background:#F2F6FD}
+.hero .btn-ghost{border-color:rgba(255,255,255,.85);color:var(--white)}
+.hero .btn-ghost:hover{background:rgba(255,255,255,.1)}
 .eyebrow{display:inline-block;font-family:var(--display);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px;color:var(--wise-green)}
+.hero .eyebrow{color:#BFE5D2;border:1.5px dashed rgba(255,255,255,.5);border-radius:999px;padding:6px 16px}
 
-/* page hero */
-.page-hero{background:var(--deep-blue);color:var(--white);padding:84px 0 76px;position:relative;overflow:hidden}
-.page-hero .wm{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;font-family:var(--display);font-weight:700;font-size:clamp(9rem,26vw,20rem);color:rgba(255,255,255,.06);user-select:none;pointer-events:none;white-space:nowrap;padding-right:5%}
-.page-hero .inner{position:relative}
-.page-hero .eyebrow{color:#9FD9BC;border:1.5px dashed rgba(255,255,255,.45);border-radius:999px;padding:6px 16px}
-.page-hero h1{font-family:var(--display);font-weight:600;font-size:clamp(2rem,4.4vw,3rem);line-height:1.15;max-width:680px;margin:18px 0 18px;letter-spacing:-.015em}
-.page-hero p{font-size:1.15rem;max-width:600px;color:#C9D6EE}
-
-section{padding:80px 0}
-h2{font-family:var(--display);font-weight:600;font-size:clamp(1.6rem,3vw,2.1rem);letter-spacing:-.01em;margin-bottom:14px;color:var(--deep-blue)}
+/* ---------- sections ---------- */
+section{padding:88px 0}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(1.7rem,3.2vw,2.3rem);letter-spacing:-.01em;margin-bottom:14px;color:var(--deep-blue)}
 .lede{font-size:1.1rem;color:#4A5670;max-width:640px}
 
-/* value strip */
-.value{background:var(--white)}
-.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
-.value-card{background:var(--sky);border:1px solid var(--sky-2);border-radius:var(--radius);padding:30px 26px}
-.value-card h3{font-family:var(--display);font-weight:600;font-size:1.15rem;color:var(--deep-blue);margin-bottom:10px}
-.value-card p{font-size:.96rem;color:#4A5670}
+/* product */
+.product{background:var(--white)}
+.product-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;margin-top:8px}
+.mirror-card{background:var(--sky);border-radius:var(--radius);padding:36px;border:1px solid var(--sky-2)}
+.chat-line{display:flex;gap:12px;margin-bottom:18px;align-items:flex-start}
+.chat-dot{flex:none;width:34px;height:34px;border-radius:50%;background:var(--way-blue);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:.8rem}
+.chat-dot.you{background:var(--wise-green)}
+.bubble{background:var(--white);border-radius:12px;padding:12px 16px;font-size:.94rem;box-shadow:0 1px 2px rgba(30,42,64,.06)}
+.steps{list-style:none;margin-top:28px}
+.steps li{display:flex;gap:16px;margin-bottom:22px}
+.steps .n{flex:none;width:38px;height:38px;border-radius:50%;border:2px dashed var(--wise-green);color:var(--wise-green);font-family:var(--display);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.steps b{display:block;font-weight:600;color:var(--deep-blue)}
+.steps p{font-size:.95rem;color:#4A5670}
 
-/* FAQ */
-.faq{background:var(--sky)}
-.faq-list{margin-top:40px;max-width:820px}
-.faq-item{background:var(--white);border:1px solid var(--sky-2);border-left:3px solid var(--wise-green);border-radius:0 var(--radius) var(--radius) 0;padding:32px 36px;margin-bottom:22px}
-.faq-item h3{font-family:var(--display);font-weight:600;font-size:1.25rem;color:var(--deep-blue);margin-bottom:14px;line-height:1.3}
-.faq-item p{font-size:1.02rem;color:#3A4660;margin-bottom:14px}
-.faq-item p:last-child{margin-bottom:0}
-.faq-item .q-num{font-family:var(--display);font-weight:700;color:var(--wise-green);margin-right:8px}
+/* markets */
+.markets{background:var(--sky)}
+.market-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+.market-card{background:var(--white);border-radius:var(--radius);padding:38px 34px;border:1px solid var(--sky-2);transition:transform .18s,box-shadow .18s;display:flex;flex-direction:column}
+.market-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(39,64,110,.10)}
+.market-card h3{font-family:var(--display);font-weight:600;font-size:1.35rem;color:var(--deep-blue);margin-bottom:12px}
+.market-card p{font-size:.98rem;color:#4A5670;margin-bottom:18px}
+.market-card ul{list-style:none;margin-bottom:26px}
+.market-card li{font-size:.94rem;padding:7px 0 7px 26px;position:relative;color:#3A4660}
+.market-card li::before{content:"";position:absolute;left:0;top:15px;width:14px;border-top:2px dashed var(--wise-green)}
+.market-card .btn{margin-top:auto;align-self:flex-start}
+.tag{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--way-blue);background:var(--sky);border-radius:999px;padding:5px 14px;margin-bottom:16px}
 
-/* cta */
-.cta{text-align:center;background:var(--white)}
-.cta-box{max-width:720px;margin:0 auto;border:2px dashed var(--wise-green);border-radius:var(--radius);padding:54px 40px;background:#FBFDFC}
-.cta-box .lede{margin:0 auto 32px}
+/* research */
+.research{background:var(--deep-blue);color:var(--white)}
+.research h2{color:var(--white)}
+.research .lede{color:#C9D6EE}
+.research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.fact{border:1.5px dashed rgba(255,255,255,.4);border-radius:var(--radius);padding:26px 24px}
+.fact b{display:block;font-family:var(--display);font-weight:600;font-size:1.1rem;margin-bottom:8px}
+.fact p{font-size:.93rem;color:#C9D6EE}
+.research .btn{margin-top:38px;background:var(--white);color:var(--deep-blue)}
 
+/* partner */
+.partner{text-align:center;background:var(--white)}
+.partner .lede{margin:0 auto 36px}
+.partner-box{max-width:720px;margin:0 auto;border:2px dashed var(--wise-green);border-radius:var(--radius);padding:56px 40px;background:#FBFDFC}
+
+/* footer */
 footer{background:var(--sky);padding:48px 0;font-size:.92rem;color:#4A5670}
 .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
 .foot .links{display:flex;gap:26px}
@@ -92,11 +119,13 @@ footer{background:var(--sky);padding:48px 0;font-size:.92rem;color:#4A5670}
 
 @media (max-width:840px){
   .nav-links{display:none}
-  .value-grid{grid-template-columns:1fr}
-  section{padding:58px 0}
-  .faq-item{padding:26px 24px}
+  .product-grid,.market-grid,.research-grid{grid-template-columns:1fr;gap:32px}
+  section{padding:64px 0}
+  .hero-inner{padding:88px 0 80px}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto}
+}
 </style>
 </head>
 <body>
@@ -106,84 +135,131 @@ footer{background:var(--sky);padding:48px 0;font-size:.92rem;color:#4A5670}
     <nav aria-label="Main">
       <a class="logo" href="index.html">way<span>2</span>wise<span>.ai</span></a>
       <div class="nav-links">
-        <a href="index.html#product">EQ Agent</a>
-        <a href="index.html#markets">Solutions</a>
-        <a href="index.html#research">Research</a>
-        <a href="index.html#about">About</a>
-        <a class="btn btn-primary" href="#cta">Partner with us</a>
+        <a href="#product">EQ Agent</a>
+        <a href="#markets">Solutions</a>
+        <a href="#research">Research</a>
+        <a href="#about">About</a>
+        <a class="btn btn-primary" href="#partner">Partner with us</a>
       </div>
     </nav>
   </div>
 </header>
 
 <main>
-<section class="page-hero">
+<section class="hero" aria-label="Introduction">
   <div class="wm" aria-hidden="true">W2W</div>
-  <div class="wrap inner">
-    <span class="eyebrow">For engineering teams</span>
-    <h1>Develop the skill that decides whether technical talent lands.</h1>
-    <p>Self-regulation — managing frustration, focusing under pressure, communicating honestly — is the "master developer soft skill." The EQ Agent builds it in ten minutes a week, inside the flow of real work.</p>
-  </div>
-</section>
-
-<section class="value">
-  <div class="wrap">
-    <hr class="path-rule">
-    <span class="eyebrow">Why teams adopt it</span>
-    <h2>Fits the week your engineers already have.</h2>
-    <div class="value-grid">
-      <div class="value-card"><h3>Low time cost</h3><p>A five-minute podcast plus a ten-minute reflection. Roughly fifteen minutes a week, not another course to schedule.</p></div>
-      <div class="value-card"><h3>Private by design</h3><p>Individual reflections stay with the individual. Leaders see program-level patterns, never personal entries.</p></div>
-      <div class="value-card"><h3>Real work, real growth</h3><p>Reflections draw on the engineer's actual week, so insight compounds with the work instead of sitting in a silo.</p></div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Education, augmented by AI</span>
+    <h1>The wise way to grow the skills that make engineers human.</h1>
+    <p>way2wise.ai builds AI learning tools, starting with the EQ Agent — a personal reflection coach that helps software engineers develop emotional self-awareness and self-regulation.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#product">Meet the EQ Agent</a>
+      <a class="btn btn-ghost" href="#partner">Become a partner</a>
     </div>
   </div>
 </section>
 
-<section class="faq" id="faq">
+<section class="product" id="product">
   <div class="wrap">
-    <hr class="path-rule">
-    <span class="eyebrow">For L&amp;D and engineering leaders</span>
-    <h2>Bringing it into your organization.</h2>
-    <div class="faq-list">
-
-      <div class="faq-item">
-        <h3><span class="q-num">1.</span>How do I get my engineers using this and integrating it with our existing curriculum?</h3>
-        <p>The EQ Agent is designed to slot alongside what you already run, not replace it. A typical rollout starts with a small pilot cohort — one team or a single engineering function — over a four-week cycle, so you can measure fit before scaling. Each week pairs a five-minute podcast with a ten-minute guided reflection: a roughly fifteen-minute commitment that fits inside existing learning time rather than competing with delivery schedules.</p>
-        <p>Because the program maps to recognized EQ competencies — emotional self-awareness and self-regulation — you can align it to the soft-skill or leadership tracks already in your LMS or competency framework. We work with your L&amp;D team to connect the weekly themes to your existing curriculum milestones, whether that's onboarding, promotion readiness, or tech-lead transitions, so the reflection work reinforces the training engineers are already doing. Individual reflection content stays private to the engineer; what you receive are program-level patterns and engagement signals, which keeps adoption high and trust intact.</p>
+    <div class="product-grid">
+      <div>
+        <hr class="path-rule">
+        <span class="eyebrow">The EQ Agent</span>
+        <h2>An external mirror for your inner work.</h2>
+        <p class="lede">Technical skill gets engineers in the door. Self-regulation — managing frustration, staying focused under pressure, communicating honestly — is what carries careers. The EQ Agent guides short weekly reflections and turns them into personalized insight.</p>
+        <ul class="steps">
+          <li><span class="n">1</span><div><b>Listen</b><p>A five-minute weekly podcast introduces one EQ concept, written for engineers.</p></div></li>
+          <li><span class="n">2</span><div><b>Reflect</b><p>Ten minutes with the EQ Agent — guided prompts that meet you where the week actually happened.</p></div></li>
+          <li><span class="n">3</span><div><b>See yourself</b><p>The agent surfaces emotional patterns in your own language, mapped to self-awareness and self-regulation.</p></div></li>
+        </ul>
       </div>
-
-      <div class="faq-item">
-        <h3><span class="q-num">2.</span>How does this complement the other learning my engineers engage in?</h3>
-        <p>Most engineering education — internal and external — is built around technical knowledge and, increasingly, AI-assisted coding. That training answers "how do I build this." The EQ Agent addresses the layer most curricula leave out: how an engineer manages frustration during a hard debug, communicates honestly under deadline pressure, and works effectively inside a team. Self-regulation is called the "master developer soft skill" precisely because it determines whether technical ability translates into real collaboration.</p>
-        <p>Rather than adding another content course, the agent turns existing experience into learning. Reflections draw on real situations from the engineer's actual week — a tense code review, a missed estimate, a productive pairing session — so growth compounds with whatever else they're learning instead of sitting apart from it. It pairs especially well with mentorship programs, agile and team-health practices, and leadership development, giving those efforts a consistent, personal feedback loop between sessions.</p>
+      <div class="mirror-card" aria-label="Example reflection exchange">
+        <div class="chat-line">
+          <span class="chat-dot" aria-hidden="true">EQ</span>
+          <div class="bubble">You mentioned the code review felt "unfair." What was happening in your body when you read that first comment?</div>
+        </div>
+        <div class="chat-line">
+          <span class="chat-dot you" aria-hidden="true">You</span>
+          <div class="bubble">Tight shoulders, honestly. I wanted to fire back a reply right away.</div>
+        </div>
+        <div class="chat-line">
+          <span class="chat-dot" aria-hidden="true">EQ</span>
+          <div class="bubble">That's the third reflection where a pause came up before a strong reaction. What helped you wait this time?</div>
+        </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<section class="cta" id="cta">
+<section class="markets" id="markets">
   <div class="wrap">
-    <div class="cta-box">
+    <hr class="path-rule">
+    <span class="eyebrow">Two paths, one product</span>
+    <h2>Built for the classroom and the codebase.</h2>
+    <div class="market-grid">
+      <div class="market-card">
+        <span class="tag">Academic</span>
+        <h3>For universities &amp; programs</h3>
+        <p>Close the EQ gap in software engineering education without adding a course to the catalog.</p>
+        <ul>
+          <li>Fits capstone and project-based courses</li>
+          <li>Grounded in IRB-approved research methods</li>
+          <li>Privacy-first: no PII enters the AI system</li>
+        </ul>
+        <a class="btn btn-ghost" href="#partner">Explore academic pilots</a>
+      </div>
+      <div class="market-card">
+        <span class="tag">Enterprise</span>
+        <h3>For engineering teams</h3>
+        <p>Develop the "master developer soft skill" — self-regulation — in ten minutes a week, inside the flow of real work.</p>
+        <ul>
+          <li>Designed around real engineering pressure points</li>
+          <li>Individual insight stays with the individual</li>
+          <li>Program-level outcomes for L&amp;D leaders</li>
+        </ul>
+        <a class="btn btn-ghost" href="for-enterprise.html">Explore team pilots</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="research" id="research">
+  <div class="wrap">
+    <hr class="path-rule">
+    <span class="eyebrow" style="color:#9FD9BC">Evidence first</span>
+    <h2>Born from research, not a pitch deck.</h2>
+    <p class="lede">The EQ Agent began as a graduate research study at Pepperdine University, examining how personalized AI interactions reveal emotional intelligence in working software engineers.</p>
+    <div class="research-grid">
+      <div class="fact"><b>Qualitative case study</b><p>A month-long intervention with practicing engineers, triangulating AI reflection logs, weekly entries, and in-depth interviews.</p></div>
+      <div class="fact"><b>IRB-approved methods</b><p>Conducted under Pepperdine University IRB protocol, with informed consent and full anonymization throughout.</p></div>
+      <div class="fact"><b>Privacy by architecture</b><p>Zero Trust design, least-privilege access, and auditable lineage on every AI output. No personally identifiable information, ever.</p></div>
+    </div>
+    <a class="btn" href="#">Read the research</a>
+  </div>
+</section>
+
+<section class="partner" id="partner">
+  <div class="wrap">
+    <div class="partner-box">
       <hr class="path-rule center">
-      <span class="eyebrow">Start small, measure, scale</span>
-      <h2>Run a four-week pilot with one team.</h2>
-      <p class="lede">We'll help you scope a cohort, align the weekly themes to your curriculum, and define the signals you want to measure.</p>
+      <span class="eyebrow">Shape what comes next</span>
+      <h2>The next iteration will be defined with partners.</h2>
+      <p class="lede">We're inviting a small group of universities and engineering organizations to pilot the EQ Agent, contribute to the research, and co-design the roadmap.</p>
       <a class="btn btn-primary" href="mailto:patrick@way2wise.ai">Start the conversation</a>
     </div>
   </div>
 </section>
 </main>
 
-<footer>
+<footer id="about">
   <div class="wrap foot">
     <div>
       <span class="logo" style="font-size:1.15rem">way<span style="color:var(--wise-green)">2</span>wise<span style="color:var(--wise-green)">.ai</span></span>
       <p style="margin-top:6px">Santa Cruz, California · patrick@way2wise.ai</p>
     </div>
     <div class="links">
-      <a href="index.html">Home</a>
       <a href="#">Contact</a>
+      <a href="#">Newsletter</a>
       <a href="#">Privacy</a>
       <a href="#">Terms</a>
     </div>
