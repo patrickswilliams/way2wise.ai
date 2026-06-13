@@ -38,7 +38,9 @@ a{color:inherit;text-decoration:none}
 /* ---------- nav ---------- */
 header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--sky-2);z-index:50}
 nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-.logo{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--way-blue);letter-spacing:-.01em}
+.logo{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--way-blue);letter-spacing:-.01em;display:inline-flex;align-items:center}
+.logo img{height:38px;width:auto;display:block}
+.logo-img-foot{height:34px;width:auto;display:block}
 .logo span{color:var(--wise-green)}
 .nav-links{display:flex;gap:32px;align-items:center;font-size:.95rem;font-weight:500}
 .nav-links a{color:var(--deep-blue);transition:color .2s}
@@ -133,7 +135,7 @@ footer{background:var(--sky);padding:48px 0;font-size:.92rem;color:#4A5670}
 <header>
   <div class="wrap">
     <nav aria-label="Main">
-      <a class="logo" href="index.html">way<span>2</span>wise<span>.ai</span></a>
+      <a class="logo" href="index.html" aria-label="way2wise.ai home"><img src="assets/w2w-logo.png" alt="way2wise.ai"></a>
       <div class="nav-links">
         <a href="#product">EQ Agent</a>
         <a href="#markets">Solutions</a>
@@ -254,7 +256,7 @@ footer{background:var(--sky);padding:48px 0;font-size:.92rem;color:#4A5670}
 <footer id="about">
   <div class="wrap foot">
     <div>
-      <span class="logo" style="font-size:1.15rem">way<span style="color:var(--wise-green)">2</span>wise<span style="color:var(--wise-green)">.ai</span></span>
+      <img class="logo-img-foot" src="assets/w2w-logo.png" alt="way2wise.ai">
       <p style="margin-top:6px">Santa Cruz, California · patrick@way2wise.ai</p>
     </div>
     <div class="links">
