@@ -99,30 +99,31 @@ h2{font-family:var(--display);font-weight:600;font-size:clamp(1.7rem,3.2vw,2.3re
 .tag{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--way-blue);background:var(--sky);border-radius:999px;padding:5px 14px;margin-bottom:16px}
 
 /* research */
-.research{background:var(--deep-blue);color:var(--white)}
-.research h2{color:var(--white)}
-.research .lede{color:#C9D6EE}
+.research{background:var(--white)}
+.research h2{color:var(--deep-blue)}
+.research .lede{color:#4A5670}
 .research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
-.fact{border:1.5px dashed rgba(255,255,255,.4);border-radius:var(--radius);padding:26px 24px}
-.fact b{display:block;font-family:var(--display);font-weight:600;font-size:1.1rem;margin-bottom:8px}
-.fact p{font-size:.93rem;color:#C9D6EE}
-.research .btn{margin-top:38px;background:var(--white);color:var(--deep-blue)}
+.fact{border:1px solid var(--sky-2);border-left:3px solid var(--wise-green);border-radius:0 var(--radius) var(--radius) 0;background:var(--sky);padding:26px 24px}
+.fact b{display:block;font-family:var(--display);font-weight:600;font-size:1.1rem;margin-bottom:8px;color:var(--deep-blue)}
+.fact p{font-size:.93rem;color:#4A5670}
+.research .btn{margin-top:38px;background:var(--way-blue);color:var(--white)}
+.research .btn:hover{background:#3A66AE}
 
 /* integration */
-.integrate{background:var(--white)}
+.integrate{background:var(--sky)}
 .integrate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.int-card{border:1px solid var(--sky-2);border-left:3px solid var(--wise-green);border-radius:0 var(--radius) var(--radius) 0;padding:28px 26px;background:var(--sky)}
+.int-card{border:1px solid var(--sky-2);border-left:3px solid var(--wise-green);border-radius:0 var(--radius) var(--radius) 0;padding:28px 26px;background:var(--white)}
 .int-card h3{font-family:var(--display);font-weight:600;font-size:1.12rem;color:var(--deep-blue);margin-bottom:10px}
 .int-card p{font-size:.96rem;color:#4A5670}
 
 /* about / founder */
-.about{background:var(--sky)}
+.about{background:var(--white)}
 .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start;margin-top:8px}
-.about-card{background:var(--white);border:1px solid var(--sky-2);border-radius:var(--radius);padding:34px;position:sticky;top:96px}
+.about-card{background:var(--sky);border:1px solid var(--sky-2);border-radius:var(--radius);padding:34px;position:sticky;top:96px}
 .about-card .role{font-family:var(--display);font-weight:600;color:var(--way-blue);font-size:1.3rem;margin-bottom:4px}
 .about-card .title{font-size:.95rem;color:#4A5670;margin-bottom:20px}
 .about-card ul{list-style:none}
-.about-card li{font-size:.93rem;padding:8px 0 8px 26px;position:relative;color:#3A4660;border-top:1px solid var(--sky)}
+.about-card li{font-size:.93rem;padding:8px 0 8px 26px;position:relative;color:#3A4660;border-top:1px solid var(--sky-2)}
 .about-card li:first-child{border-top:none}
 .about-card li::before{content:"";position:absolute;left:0;top:17px;width:14px;border-top:2px dashed var(--wise-green)}
 .about-prose p{font-size:1.04rem;color:#3A4660;margin-bottom:18px}
@@ -250,7 +251,7 @@ footer{background:var(--sky);padding:48px 0;font-size:.92rem;color:#4A5670}
 <section class="research" id="research">
   <div class="wrap">
     <hr class="path-rule">
-    <span class="eyebrow" style="color:#9FD9BC">Evidence first</span>
+    <span class="eyebrow">Evidence first</span>
     <h2>Born from research, not a pitch deck.</h2>
     <p class="lede">The EQ Agent began as a graduate research study at Pepperdine University, examining how personalized AI interactions reveal emotional intelligence in working software engineers.</p>
     <div class="research-grid">
