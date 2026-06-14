@@ -108,6 +108,27 @@ h2{font-family:var(--display);font-weight:600;font-size:clamp(1.7rem,3.2vw,2.3re
 .fact p{font-size:.93rem;color:#C9D6EE}
 .research .btn{margin-top:38px;background:var(--white);color:var(--deep-blue)}
 
+/* integration */
+.integrate{background:var(--white)}
+.integrate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.int-card{border:1px solid var(--sky-2);border-left:3px solid var(--wise-green);border-radius:0 var(--radius) var(--radius) 0;padding:28px 26px;background:var(--sky)}
+.int-card h3{font-family:var(--display);font-weight:600;font-size:1.12rem;color:var(--deep-blue);margin-bottom:10px}
+.int-card p{font-size:.96rem;color:#4A5670}
+
+/* about / founder */
+.about{background:var(--sky)}
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start;margin-top:8px}
+.about-card{background:var(--white);border:1px solid var(--sky-2);border-radius:var(--radius);padding:34px;position:sticky;top:96px}
+.about-card .role{font-family:var(--display);font-weight:600;color:var(--way-blue);font-size:1.3rem;margin-bottom:4px}
+.about-card .title{font-size:.95rem;color:#4A5670;margin-bottom:20px}
+.about-card ul{list-style:none}
+.about-card li{font-size:.93rem;padding:8px 0 8px 26px;position:relative;color:#3A4660;border-top:1px solid var(--sky)}
+.about-card li:first-child{border-top:none}
+.about-card li::before{content:"";position:absolute;left:0;top:17px;width:14px;border-top:2px dashed var(--wise-green)}
+.about-prose p{font-size:1.04rem;color:#3A4660;margin-bottom:18px}
+.about-prose p:first-of-type{font-size:1.12rem;color:var(--deep-blue)}
+.about-prose .pull{font-family:var(--display);font-weight:600;font-size:1.2rem;color:var(--deep-blue);border-left:3px dashed var(--wise-green);padding-left:18px;margin:26px 0;line-height:1.4}
+
 /* partner */
 .partner{text-align:center;background:var(--white)}
 .partner .lede{margin:0 auto 36px}
@@ -121,7 +142,8 @@ footer{background:var(--sky);padding:48px 0;font-size:.92rem;color:#4A5670}
 
 @media (max-width:840px){
   .nav-links{display:none}
-  .product-grid,.market-grid,.research-grid{grid-template-columns:1fr;gap:32px}
+  .product-grid,.market-grid,.research-grid,.about-grid,.integrate-grid{grid-template-columns:1fr;gap:32px}
+  .about-card{position:static}
   section{padding:64px 0}
   .hero-inner{padding:88px 0 80px}
 }
@@ -240,6 +262,59 @@ footer{background:var(--sky);padding:48px 0;font-size:.92rem;color:#4A5670}
   </div>
 </section>
 
+<section class="integrate" id="integrate">
+  <div class="wrap">
+    <hr class="path-rule">
+    <span class="eyebrow">Fits what you already do</span>
+    <h2>It works with your learning, not around it.</h2>
+    <p class="lede">The EQ Agent isn't another course to schedule or platform to migrate to. It's a thin layer of guided reflection that wraps around the technical training, programs, and real projects your engineers are already engaged in.</p>
+    <div class="integrate-grid">
+      <div class="int-card">
+        <h3>Maps to your curriculum</h3>
+        <p>Weekly themes align to recognized EQ competencies, so they slot into existing soft-skill and leadership tracks in your LMS or course catalog — onboarding, capstones, promotion readiness, tech-lead transitions.</p>
+      </div>
+      <div class="int-card">
+        <h3>Turns experience into learning</h3>
+        <p>Reflections draw on the engineer's actual week — a tense code review, a missed estimate, a good pairing session — so growth compounds with the work they're doing rather than sitting in a separate silo.</p>
+      </div>
+      <div class="int-card">
+        <h3>Amplifies what's working</h3>
+        <p>It pairs naturally with mentorship, agile and team-health practices, and existing leadership development, giving those efforts a consistent, personal feedback loop between sessions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <hr class="path-rule">
+    <span class="eyebrow">Why way2wise exists</span>
+    <h2>I had to learn this the hard way.</h2>
+    <div class="about-grid">
+      <aside class="about-card">
+        <div class="role">Patrick Williams</div>
+        <div class="title">Founder &amp; Chief EQ Architect</div>
+        <ul>
+          <li>Nearly two decades at Google — Learning &amp; Development, SMB tools, compensation systems</li>
+          <li>Earlier career across IBM, startups, and a venture acquired by Google</li>
+          <li>Now teaching at UC Santa Cruz</li>
+          <li>Graduate research on EQ and AI at Pepperdine University</li>
+          <li>Operating principle: Assess · Flex · Partner</li>
+        </ul>
+      </aside>
+      <div class="about-prose">
+        <p>way2wise.ai grew out of a simple conviction: the skills that decide an engineer's career are rarely the ones their training focuses on. I know this firsthand, because the human side of work is the part I had to fight for.</p>
+        <p>I grew up on Navy bases — Coronado, Alameda, Norfolk — the son and grandson of Rear Admirals, in a world of unwavering dedication and constant upheaval. Moving every few years, I learned early to read a room, adapt, and partner with whoever was in front of me. It built resilience, and it left me with a lifelong attentiveness to how people actually feel beneath what they say.</p>
+        <p>School was harder. Letters and numbers scrambled on the page, and for years I believed I was slow, lazy, or stupid — until a fourth-grade dyslexia diagnosis gave the struggle a name, and a teacher named Mrs. Johnson gave it a path forward. The lesson stuck: a brain wired differently is still capable of remarkable things when someone offers the right kind of patient, personalized feedback.</p>
+        <p class="pull">"That's what the EQ Agent is — the patient mirror I wish more people had access to."</p>
+        <p>My career became a long experiment in building and learning: OCR and client/server systems at IBM, a string of startups, a company I shepherded into a Google acquisition, and nearly twenty years inside Google itself. Through all of it, the same passions held — research, innovation, coaching, and mentoring — and I kept discovering that confidence is built one hard experience at a time. I also learned, presenting a new idea to Google's founders and watching it not get funded, that not every good idea gets backed. The work is what teaches you.</p>
+        <p>In 2015, a bipolar disorder diagnosis reframed everything again. The shock gave way to clarity: the manic energy, the self-doubt, the emotional swings finally made sense. I came to treat it not as a sentence but as a key — a call to embrace vulnerability, seek support, and keep learning about myself. That lived experience of emotional self-regulation, hard-won and ongoing, is the foundation the EQ Agent is built on.</p>
+        <p>Now, teaching at UC Santa Cruz and building way2wise.ai, I'm focused on the next generation of engineers — equipping them with the confidence, resilience, and emotional intelligence to navigate complexity and make a meaningful impact. The way I've run teams my whole career is the way I'm building this company: open communication, challenge ideas rather than people, prove it with data, launch and iterate, and make it fun.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="partner" id="partner">
   <div class="wrap">
     <div class="partner-box">
@@ -253,7 +328,7 @@ footer{background:var(--sky);padding:48px 0;font-size:.92rem;color:#4A5670}
 </section>
 </main>
 
-<footer id="about">
+<footer>
   <div class="wrap foot">
     <div>
       <img class="logo-img-foot" src="assets/w2w-logo.png" alt="way2wise.ai">
