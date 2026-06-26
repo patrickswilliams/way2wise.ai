@@ -14,6 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/animation.css">
+  <link rel="stylesheet" href="assets/styles.css">
 <style>
 
 :root{
@@ -206,37 +207,46 @@ footer{background:var(--sky);padding:48px 0;font-size:.92rem;color:#4A5670}
       </div>
     </section>
 
-<section class="product" id="product">
+<section id="product" class="override-section">
+  <div class="extra-margin">
   <div class="wrap">
-    <div class="product-grid">
-      <div>
         <hr class="path-rule">
         <span class="eyebrow">The EQ Agent</span>
-        <h2>An external mirror for your inner work.</h2>
-        <p class="lede">Technical skill gets engineers in the door. Self-regulation — managing frustration, staying focused under pressure, communicating honestly — is what carries careers. The EQ Agent guides short weekly reflections and turns them into personalized insight.</p>
-        <ul class="steps">
-          <li><span class="n">1</span><div><b>Listen</b><p>A five-minute weekly podcast introduces one EQ concept, written for engineers.</p></div></li>
-          <li><span class="n">2</span><div><b>Reflect</b><p>Ten minutes with the EQ Agent — guided prompts that meet you where the week actually happened.</p></div></li>
-          <li><span class="n">3</span><div><b>See yourself</b><p>The agent surfaces emotional patterns in your own language, mapped to self-awareness and self-regulation.</p></div></li>
-        </ul>
-      </div>
-      <div class="mirror-card" aria-label="Example reflection exchange">
-        <div class="chat-line">
-          <span class="chat-dot" aria-hidden="true">EQ</span>
-          <div class="bubble">You mentioned the code review felt "unfair." What was happening in your body when you read that first comment?</div>
+        <h2 class="custom-content">An external mirror for your inner work.</h2>
+        <p class="custom-content">Technical skill gets engineers in the door. Self-regulation — managing frustration, staying focused under pressure, communicating honestly — is what carries careers. The EQ Agent guides short weekly reflections and turns them into personalized insight.</p>
+    </div>
+  </div>
+
+  <div class="product-row">
+
+    <div class="wrap">
+      <div class="product-columns">
+        <div class="product-column">
+          <div class="column-content">
+            <div class="column-number">1</div>
+            <div class="column-label">Listen</div>
+          </div>
+          <div class="column-text">A five-minute weekly podcast introduces one EQ concept, written for engineers.</div>
         </div>
-        <div class="chat-line">
-          <span class="chat-dot you" aria-hidden="true">You</span>
-          <div class="bubble">Tight shoulders, honestly. I wanted to fire back a reply right away.</div>
+        <div class="product-column">
+          <div class="column-content">
+            <div class="column-number">2</div>
+            <div class="column-label">Reflect</div>
+          </div>
+          <div class="column-text">Ten minutes with the EQ Agent — guided prompts that meet you where the week actually happened.</div>
         </div>
-        <div class="chat-line">
-          <span class="chat-dot" aria-hidden="true">EQ</span>
-          <div class="bubble">That's the third reflection where a pause came up before a strong reaction. What helped you wait this time?</div>
+        <div class="product-column">
+          <div class="column-content">
+            <div class="column-number">3</div>
+            <div class="column-label">See yourself</div>
+          </div>
+          <div class="column-text">The agent surfaces emotional patterns in your own language, mapped to self-awareness and self-regulation.</div>
         </div>
       </div>
     </div>
   </div>
-</section>
+
+  </section>
 
 <section class="markets" id="markets">
   <div class="wrap">

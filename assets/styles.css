@@ -1,0 +1,115 @@
+/* Product Section Background */
+.product-row {
+  background-image: url('images/bg-product-grid.jpg') !important;
+  background-size: cover !important;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+  min-height: 650px;
+  display: flex;
+  flex-direction: column;
+}
+
+.extra-margin {
+  margin-bottom: 80px;
+}
+
+.custom-content {
+    color: #676759;
+    font-family: 'Comfortaa-Bold', sans-serif;
+    font-weight: normal;
+}
+
+.product-row .wrap:last-child {
+  margin-top: auto;
+  padding-bottom: 40px;
+}
+
+.override-section {
+    padding-bottom: 0px;
+}
+
+/* Product Columns */
+.product-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  padding: 0px;
+}
+
+.product-column {
+  background-color: rgba(131, 142, 162, 0.5);
+  min-height: 320px;
+  min-width: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-column:hover {
+  background-color: rgba(131, 142, 162, 0.65);
+}
+
+.column-content {
+  background: transparent;
+  border: 3px dashed var(--white);
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.column-number {
+  font-family: var(--display);
+  font-weight: normal;
+  font-size: 5rem;
+  color: var(--white);
+  margin-bottom: -8px;
+  padding: 0px;
+  font-family: 'Comfortaa-Bold', sans-serif;
+  line-height: 1;
+}
+
+.column-label {
+  font-family: var(--display);
+  font-weight: normal;
+  font-size: 1.3rem;
+  color: var(--white);
+  font-family: 'Comfortaa-Bold', sans-serif;
+}
+
+.column-text {
+  color: var(--white);
+  font-family: 'Comfortaa-Bold', sans-serif;
+  font-size: 1.55rem;
+  text-align:left;
+  padding: 32px 20px;
+  max-width: 280px;
+  line-height: 1.6;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  font-family: var(--body);
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.product-column:hover .column-content {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.product-column:hover .column-text {
+  opacity: 1;
+}
