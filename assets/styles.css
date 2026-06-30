@@ -113,3 +113,83 @@
 .product-column:hover .column-text {
   opacity: 1;
 }
+
+
+/** Research Section **/
+
+.research {
+  background-image: url('images/bg-pitch-deck-2.jpg') !important;
+  background-size: cover !important;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+  min-height: 685px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  text-align: center;
+}
+
+.research-grid {
+  gap:40px !important;
+}
+
+.research h2,
+.research .eyebrow,
+.research .lede {
+  color: #fff !important;
+  font-family: 'Comfortaa-Regular', sans-serif;
+  font-weight: 300 !important;
+}
+
+.research .eyebrow {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+
+.research h2 {
+  font-size: 2.5rem;
+}
+
+.research .lede {
+  font-size: 1.25rem;
+  max-width: inherit;
+}
+
+
+.research .fact {
+  font-size: 1.5rem;
+  border-left:none;
+  border-radius: 0px;
+  border:none;
+  background-color: #828EA3;
+  color: #fff;
+}
+
+.research .fact b,
+.research .fact p {
+  font-family: 'Comfortaa-Regular', sans-serif;
+  font-weight: 100 !important;
+  text-align: left;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.research .fact p {
+  font-size: 1.19rem;
+}
+
+.research .btn {
+  background-color: rgba(255, 255, 255, 0) !important;
+  color: #fff;
+  border:1px solid #fff;
+  text-transform: uppercase;
+  font-family: 'Comfortaa-Regular', sans-serif;
+  font-weight: 100 !important;
+  font-size: 1.25rem;
+  padding: 11px 50px;
+}
+
+.research .btn:hover {
+  background-color: rgba(255, 255, 255, .85) !important;
+  color: #828EA3;
+}

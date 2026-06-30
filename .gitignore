@@ -1,5 +1,3 @@
-.DS_Store
-
 # >>> Switchboard managed exclusions >>>
 # Switchboard runtime state (per-session, not shareable)
 .switchboard/*
@@ -33,7 +31,57 @@ hero-box.html
 .cursor/*
 .vscode/*
 
+
+
+
+# ==========================================
+# OS Junk Files
+# ==========================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.__MACOSX/
+__MACOSX/
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.lnk
+*.cab
+Network Trash Folder
+Temporary Items
+$RECYCLE.BIN/
+
+# ==========================================
+# IDEs and Editors
+# ==========================================
+# VS Code
+.vscode/
+!.vscode/extensions.json
+*.code-workspace
+
+# Adobe Dreamweaver
+_notes/
+dwsync.xml
+dw_php_codehinting.config
+*.LCK
+
+# Antigravity IDE
+.antigravity/
+antigravity.project
+*.agln
+
 AGENTS.md
 .antigravityignore
 .node_modules/*
 .dist/*
+comps/*
