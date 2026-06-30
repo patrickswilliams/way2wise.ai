@@ -135,22 +135,28 @@
 
 .research h2,
 .research .eyebrow,
-.research .lede {
+.research .lede,
+.partner h2,
+.partner .eyebrow,
+.partner .lede {
   color: #fff !important;
   font-family: 'Comfortaa-Regular', sans-serif;
   font-weight: 300 !important;
 }
 
-.research .eyebrow {
+.research .eyebrow,
+.partner .eyebrow {
   font-size: 1.25rem;
   text-transform: uppercase;
 }
 
-.research h2 {
+.research h2,
+.partner h2 {
   font-size: 2.5rem;
 }
 
-.research .lede {
+.research .lede,
+.partner .lede {
   font-size: 1.25rem;
   max-width: inherit;
 }
@@ -178,7 +184,8 @@
   font-size: 1.19rem;
 }
 
-.research .btn {
+.research .btn,
+.partner .btn {
   background-color: rgba(255, 255, 255, 0) !important;
   color: #fff;
   border:1px solid #fff;
@@ -189,7 +196,31 @@
   padding: 11px 50px;
 }
 
-.research .btn:hover {
+.research .btn:hover,
+.partner .btn:hover {
   background-color: rgba(255, 255, 255, .85) !important;
   color: #828EA3;
+}
+
+
+.partner {
+  background-color:#7E93AF !important;
+  min-height: 460px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  text-align: center;
+}
+
+.partner-box {
+  max-width:100% !important;
+  border: none !important;
+  background: none !important;
+  padding: 0px !important;
+}
+
+.partner-box .lede {
+  max-width: 850px !important;
+  margin-top: 25px !important;
+
 }
