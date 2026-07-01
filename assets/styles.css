@@ -117,7 +117,7 @@ h2 {
 header {
     position: sticky;
     top: 0;
-    background: rgba(255,255,255,.92);
+    background: rgba(255, 255, 255, .92);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--sky-2);
     z-index: 50;
@@ -197,9 +197,11 @@ nav {
     cursor: pointer;
     border: none;
     font-family: var(--body);
+    margin-top: 40px;
 }
 
-.btn:focus-visible, a:focus-visible {
+.btn:focus-visible,
+a:focus-visible {
     outline: 3px solid var(--way-blue);
     outline-offset: 3px;
 }
@@ -241,7 +243,7 @@ nav {
     font-family: var(--display);
     font-weight: 700;
     font-size: clamp(11rem, 30vw, 24rem);
-    color: rgba(255,255,255,.08);
+    color: rgba(255, 255, 255, .08);
     user-select: none;
     pointer-events: none;
     letter-spacing: -.04em;
@@ -293,12 +295,12 @@ nav {
 }
 
 .hero .btn-ghost {
-    border-color: rgba(255,255,255,.85);
+    border-color: rgba(255, 255, 255, .85);
     color: var(--white);
 }
 
 .hero .btn-ghost:hover {
-    background: rgba(255,255,255,.1);
+    background: rgba(255, 255, 255, .1);
 }
 
 .hero .eyebrow {
@@ -323,7 +325,7 @@ nav {
     font-family: var(--display);
     font-weight: 700;
     font-size: clamp(9rem, 26vw, 20rem);
-    color: rgba(255,255,255,.06);
+    color: rgba(255, 255, 255, .06);
     user-select: none;
     pointer-events: none;
     white-space: nowrap;
@@ -434,7 +436,7 @@ nav {
     border-radius: 12px;
     padding: 12px 16px;
     font-size: .94rem;
-    box-shadow: 0 1px 2px rgba(30,42,64,.06);
+    box-shadow: 0 1px 2px rgba(30, 42, 64, .06);
 }
 
 .steps {
@@ -652,7 +654,11 @@ nav {
 }
 
 .research-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px !important;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .research h2,
@@ -992,7 +998,7 @@ footer {
     .nav-links {
         display: none;
     }
-    
+
     .product-grid,
     .market-grid,
     .research-grid,
@@ -1002,19 +1008,19 @@ footer {
         grid-template-columns: 1fr;
         gap: 32px;
     }
-    
+
     .about-card {
         position: static;
     }
-    
+
     section {
         padding: 60px 0;
     }
-    
+
     .hero-inner {
         padding: 88px 0 80px;
     }
-    
+
     .faq-item {
         padding: 26px 24px;
     }
