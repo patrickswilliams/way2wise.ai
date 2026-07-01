@@ -1,29 +1,3 @@
-@font-face {
-    font-family: 'Comfortaa-Bold';
-    src: url('fonts/Comfortaa-Bold.ttf') format('truetype');
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Comfortaa-Medium';
-    src: url('fonts/Comfortaa-Medium.ttf') format('truetype');
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Comfortaa-Regular';
-    src: url('fonts/Comfortaa-Regular.ttf') format('truetype');
-    font-display: swap;
-}
-
-:root {
-    --primary-color: #0d6efd;
-    --hero-subtitle-y: -20px;
-    --hero-eyebrow-y: -200px;
-    --hero-desc-y: 140px;
-    --hero-cta-y: 260px;
-}
-
 
 *,
 ::before,
