@@ -82,6 +82,6 @@ antigravity.project
 
 AGENTS.md
 .antigravityignore
-.node_modules/*
+#.node_modules/*
 .dist/*
-comps/*
+comp-files/*
