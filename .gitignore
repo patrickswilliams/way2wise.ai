@@ -85,4 +85,3 @@ AGENTS.md
 .node_modules/*
 .dist/*
 comps/*
-comps/
