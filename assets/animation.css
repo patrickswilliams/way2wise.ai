@@ -70,7 +70,7 @@ html.standalone-hero body {
     height: 600px;
     top: -150px;
     left: -150px;
-    animation: drift 15s ease-in-out infinite alternate;
+    animation: drift 6s ease-in-out infinite alternate;
 }
 
 .blob-2 {
@@ -78,7 +78,7 @@ html.standalone-hero body {
     height: 500px;
     bottom: -100px;
     right: -100px;
-    animation: drift 18s ease-in-out infinite alternate-reverse;
+    animation: drift 7s ease-in-out infinite alternate-reverse;
 }
 
 .blob-3 {
@@ -86,7 +86,7 @@ html.standalone-hero body {
     height: 400px;
     top: 20%;
     right: 15%;
-    animation: drift 12s ease-in-out infinite alternate;
+    animation: drift 5s ease-in-out infinite alternate;
 }
 
 @keyframes drift {
@@ -145,8 +145,8 @@ html.standalone-hero body {
     opacity: 0;
     transform: scale(0);
     will-change: transform, opacity, filter;
-    animation: fadeInGrow2 3.6s ease-in-out forwards;
-    animation-delay: 2.4s;
+    animation: fadeInGrow2 1.8s ease-in-out forwards;
+    animation-delay: 0.6s;
 }
 
 .hero-subtitle {
@@ -163,23 +163,23 @@ html.standalone-hero body {
 }
 
 .subtitle-1 {
-    animation: fadeInOutSubtitle 7s ease-in-out forwards;
-    animation-delay: 5s;
+    animation: fadeInOutSubtitle 3s ease-in-out forwards;
+    animation-delay: 2s;
 }
 
 .subtitle-2 {
-    animation: fadeInOutSubtitle 7s ease-in-out forwards;
-    animation-delay: 10s;
+    animation: fadeInOutSubtitle 3s ease-in-out forwards;
+    animation-delay: 5s;
 }
 
 .subtitle-3 {
-    animation: fadeInOutSubtitle 7s ease-in-out forwards;
-    animation-delay: 15s;
+    animation: fadeInOutSubtitle 3s ease-in-out forwards;
+    animation-delay: 8s;
 }
 
 .subtitle-4 {
     animation: fadeInSubtitleStay 2s ease-out forwards;
-    animation-delay: 20s;
+    animation-delay: 11s;
 }
 
 .hero-eyebrow {
@@ -193,8 +193,8 @@ html.standalone-hero body {
     z-index: 10;
     transform: translateY(var(--hero-eyebrow-y));
     will-change: transform, opacity, filter;
-    animation: fadeInEyebrow 2s ease-out forwards;
-    animation-delay: 22s;
+    animation: fadeInEyebrow 1.2s ease-out forwards;
+    animation-delay: 11s;
 }
 
 .hero-description {
@@ -210,8 +210,8 @@ html.standalone-hero body {
     opacity: 0;
     transform: translateY(var(--hero-desc-y));
     will-change: transform, opacity, filter;
-    animation: fadeInDescription 2s ease-out forwards;
-    animation-delay: 22s;
+    animation: fadeInDescription 1.2s ease-out forwards;
+    animation-delay: 12s;
 }
 
 .hero-cta-group {
@@ -219,13 +219,14 @@ html.standalone-hero body {
     z-index: 10;
     transform: translateY(var(--hero-cta-y));
     will-change: transform, opacity, filter;
-    animation: fadeInCTA 2s ease-out forwards;
-    animation-delay: 22s;
+    animation: fadeInCTA 1.2s ease-out forwards;
+    animation-delay: 12s;
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
     justify-content: center;
     opacity: 0;
+    margin-top: 4rem;
 }
 
 .hero-btn {
@@ -345,11 +346,11 @@ html.standalone-hero body {
 }
 
 .w-left {
-    animation: fadeInAndMoveLeft 6s ease-in-out forwards;
+    animation: fadeInAndMoveLeft 2.5s ease-in-out forwards;
 }
 
 .w-right {
-    animation: fadeInAndMoveRight 6s ease-in-out forwards;
+    animation: fadeInAndMoveRight 2.5s ease-in-out forwards;
 }
 
 @keyframes fadeInAndMoveLeft {
