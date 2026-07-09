@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>way2wise.ai — Newsletter</title>
+
+<link rel="icon" type="image/png" href="/favicon-square/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon-square/favicon.svg" />
+<link rel="shortcut icon" href="/favicon-square/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-square/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Way2Wise" />
+<link rel="manifest" href="/favicon-square/site.webmanifest" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+.doc-hero{background:var(--deep-blue,#27406E);color:#fff;padding:72px 0 60px}
+.doc-hero .eyebrow{display:inline-block;font-family:'Quicksand',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:14px}
+.doc-hero h1{font-family:'Quicksand',sans-serif;font-weight:600;font-size:clamp(1.9rem,4vw,2.8rem);margin:0 0 12px;letter-spacing:-.015em}
+.doc-hero p{color:#C9D6EE;max-width:620px;margin:0;font-family:'Figtree',sans-serif}
+
+.news-section{padding:72px 0 88px;background:#fff}
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+
+.signup-box{border:2px solid var(--wise-green,#1F8A5F);background:#FBFDFC;padding:40px 36px}
+.signup-box h2{font-family:'Quicksand',sans-serif;font-weight:600;font-size:1.3rem;color:var(--deep-blue,#27406E);margin:0 0 10px}
+.signup-box p{font-family:'Figtree',sans-serif;color:#4A5670;font-size:.98rem;margin:0 0 26px;line-height:1.65}
+
+.form-field{margin-bottom:20px}
+.form-field label{display:block;font-family:'Quicksand',sans-serif;font-weight:600;font-size:.9rem;color:var(--deep-blue,#27406E);margin-bottom:7px}
+.form-field .req{color:var(--wise-green,#1F8A5F)}
+.form-field input,.form-field select{
+  width:100%;font-family:'Figtree',sans-serif;font-size:1rem;color:#1E2A40;
+  padding:12px 14px;border:1px solid var(--sky-2,#DCE7F7);background:#fff;border-radius:0;
+  transition:border-color .2s,box-shadow .2s;
+}
+.form-field input:focus,.form-field select:focus{
+  outline:none;border-color:var(--way-blue,#4878C4);box-shadow:0 0 0 3px rgba(72,120,196,.12);
+}
+.consent{display:flex;gap:11px;align-items:flex-start;margin-bottom:24px}
+.consent input[type=checkbox]{width:auto;margin-top:4px;flex:none}
+.consent label{font-family:'Figtree',sans-serif;font-weight:400;font-size:.9rem;color:#4A5670;line-height:1.55;margin:0}
+.consent a{color:var(--way-blue,#4878C4)}
+.form-submit{
+  font-family:'Figtree',sans-serif;font-weight:600;font-size:.95rem;
+  padding:13px 32px;background:var(--way-blue,#4878C4);color:#fff;
+  border:none;border-radius:0;cursor:pointer;transition:background .2s;width:100%;
+}
+.form-submit:hover{background:#3A66AE}
+.form-submit:focus-visible{outline:3px solid var(--way-blue,#4878C4);outline-offset:3px}
+.fine-print{font-family:'Figtree',sans-serif;font-size:.83rem;color:#6B7689;margin:16px 0 0;text-align:center}
+.hp-field{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
+
+/* What you get */
+.expect h2{font-family:'Quicksand',sans-serif;font-weight:600;font-size:1.3rem;color:var(--deep-blue,#27406E);margin:0 0 18px}
+.expect p{font-family:'Figtree',sans-serif;color:#4A5670;font-size:1.02rem;line-height:1.7;margin:0 0 20px}
+.expect ul{list-style:none;margin:26px 0 0;padding:0}
+.expect li{font-family:'Figtree',sans-serif;font-size:.98rem;color:#3A4660;padding:12px 0 12px 28px;position:relative;border-top:1px solid var(--sky-2,#DCE7F7);line-height:1.6}
+.expect li:first-child{border-top:none}
+.expect li::before{content:"";position:absolute;left:0;top:22px;width:15px;border-top:2px dashed var(--wise-green,#1F8A5F)}
+.expect li strong{display:block;font-family:'Quicksand',sans-serif;font-weight:600;color:var(--deep-blue,#27406E);margin-bottom:2px}
+
+@media (max-width:840px){
+  .news-grid{grid-template-columns:1fr;gap:44px}
+  .news-section{padding:56px 0 68px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="logo" href="index.html" aria-label="way2wise.ai home"><img src="assets/w2w-logo.png" alt="way2wise.ai"></a>
+      <div class="nav-links">
+        <a href="index.html#product">EQ Agent</a>
+        <a href="index.html#markets">Solutions</a>
+        <a href="index.html#research">Research</a>
+        <a href="index.html#about">About</a>
+        <a class="btn btn-primary" href="index.html#partner">Partner with us</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="doc-hero">
+  <div class="wrap">
+    <span class="eyebrow">Newsletter</span>
+    <h1>Notes on emotional intelligence, engineering, and AI.</h1>
+    <p>Occasional writing on what we're learning as we build the EQ Agent — the research, the failures, and the practice of reflection itself.</p>
+  </div>
+</section>
+
+<section class="news-section">
+  <div class="wrap">
+    <div class="news-grid">
+
+      <div class="expect">
+        <h2>What you'll get</h2>
+        <p>This isn't a product drip campaign. It's a slower, more thoughtful letter about the intersection of engineering practice and emotional intelligence — written for people who care about both.</p>
+        <ul>
+          <li><strong>Research, made readable</strong>Findings from our own studies and from the wider literature on emotional intelligence in technical work.</li>
+          <li><strong>Field notes</strong>What actually happens when engineers reflect weekly — including what doesn't work.</li>
+          <li><strong>Product milestones</strong>Meaningful updates on the EQ Agent, not release-note noise.</li>
+          <li><strong>Roughly monthly</strong>We write when there's something worth saying, not on a schedule.</li>
+        </ul>
+      </div>
+
+      <div class="signup-box">
+        <h2>Subscribe</h2>
+        <p>One email, unsubscribe any time. We never sell or share your address.</p>
+
+        <form name="newsletter" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thanks.html">
+          <!-- Required by Netlify to identify the form -->
+          <input type="hidden" name="form-name" value="newsletter">
+
+          <!-- Honeypot: bots fill this, humans never see it -->
+          <p class="hp-field">
+            <label>Don't fill this out if you're human: <input name="bot-field"></label>
+          </p>
+
+          <div class="form-field">
+            <label for="email">Email address <span class="req">*</span></label>
+            <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com">
+          </div>
+
+          <div class="form-field">
+            <label for="name">First name</label>
+            <input type="text" id="name" name="name" autocomplete="given-name">
+          </div>
+
+          <div class="form-field">
+            <label for="role">What describes you best?</label>
+            <select id="role" name="role">
+              <option value="">Select one…</option>
+              <option value="engineer">Software engineer</option>
+              <option value="eng-leader">Engineering leader</option>
+              <option value="ld">Learning &amp; development</option>
+              <option value="educator">Educator or researcher</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="consent">
+            <input type="checkbox" id="consent" name="consent" value="yes" required>
+            <label for="consent">I agree to receive occasional emails from way2wise.ai and have read the <a href="privacy.html">privacy policy</a>. <span class="req">*</span></label>
+          </div>
+
+          <button type="submit" class="form-submit">Subscribe</button>
+          <p class="fine-print">No spam. Unsubscribe in one click.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <img class="logo-img-foot" src="assets/w2w-logo.png" alt="way2wise.ai">
+      <p style="margin-top:6px">Santa Cruz, California · <a href="mailto:patrick@way2wise.ai">patrick@way2wise.ai</a></p>
+    </div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="contact.html">Contact</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
