@@ -73,7 +73,7 @@ a {
 /* Dashed path motif */
 .path-rule {
     border: none;
-    border-top: 2px dashed var(--deep-blue);
+    border-top: 2px dashed var(--wise-green);
     opacity: .55;
     width: 72px;
     margin: 0 0 20px;
@@ -91,7 +91,7 @@ a {
     letter-spacing: .14em;
     text-transform: uppercase;
     margin-bottom: 18px;
-    color: var(--deep-blue);
+    color: var(--wise-green);
 }
 
 section {
@@ -217,8 +217,8 @@ a:focus-visible {
 }
 
 .btn-ghost {
-    border: 2px dashed var(--deep-blue);
-    color: var(--deep-blue);
+    border: 2px dashed var(--wise-green);
+    color: var(--wise-green);
     background: transparent;
 }
 
@@ -749,7 +749,7 @@ a:focus-visible {
 
 .int-card {
     border: 1px solid var(--sky-2);
-    border-left: 3px solid var(--deep-blue);
+    border-left: 3px solid var(--wise-green);
     border-radius: 0 var(--radius) var(--radius) 0;
     padding: 28px 26px;
     background: var(--white);
@@ -826,7 +826,7 @@ a:focus-visible {
     left: 0;
     top: 17px;
     width: 14px;
-    border-top: 2px dashed var(--deep-blue);
+    border-top: 2px dashed var(--wise-green);
 }
 
 .about-prose p {
@@ -845,7 +845,7 @@ a:focus-visible {
     font-weight: 600;
     font-size: 1.2rem;
     color: var(--deep-blue);
-    border-left: 3px dashed var(--deep-blue);
+    border-left: 3px dashed var(--wise-green);
     padding-left: 18px;
     margin: 26px 0;
     line-height: 1.4;
@@ -896,7 +896,7 @@ a:focus-visible {
 .faq-item {
     background: var(--white);
     border: 1px solid var(--sky-2);
-    border-left: 3px solid var(--deep-blue);
+    border-left: 3px solid var(--wise-green);
     border-radius: 0 var(--radius) var(--radius) 0;
     padding: 32px 36px;
     margin-bottom: 22px;
@@ -924,7 +924,7 @@ a:focus-visible {
 .faq-item .q-num {
     font-family: var(--display);
     font-weight: 700;
-    color: var(--deep-blue);
+    color: var(--wise-green);
     margin-right: 8px;
 }
 
@@ -1032,4 +1032,15 @@ footer {
         transition: none !important;
         scroll-behavior: auto;
     }
+}
+/* ---------- Footer email link ---------- */
+.foot a[href^="mailto:"] {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: var(--sky-2);
+}
+
+.foot a[href^="mailto:"]:hover {
+    color: var(--way-blue);
+    text-decoration-color: var(--way-blue);
 }
