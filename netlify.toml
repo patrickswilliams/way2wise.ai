@@ -5,7 +5,7 @@
 
 # Serve the thank-you page for the extensionless /thanks path,
 # so form redirects resolve whether they target /thanks or /thanks.html.
-[[redirects]]
-  from = "/thanks"
-  to = "/thanks.html"
-  status = 200
+#[[redirects]]
+#  from = "/thanks"
+#  to = "/thanks.html"
+#  status = 200
