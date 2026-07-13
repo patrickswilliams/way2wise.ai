@@ -1044,3 +1044,12 @@ footer {
     color: var(--way-blue);
     text-decoration-color: var(--way-blue);
 }
+
+
+.thanks{min-height:60vh;display:flex;align-items:center;justify-content:center;padding:100px 24px;background:#fff;text-align:center}
+.thanks-box{max-width:600px;border:2px solid var(--wise-green,#1F8A5F);background:#FBFDFC;padding:60px 44px}
+.thanks .eyebrow{display:inline-block;font-family:'Quicksand',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--wise-green,#1F8A5F);margin-bottom:14px}
+.thanks h1{font-family:'Quicksand',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.4vw,2.3rem);color:var(--deep-blue,#27406E);margin:0 0 16px;letter-spacing:-.015em}
+.thanks p{font-family:'Figtree',sans-serif;color:#4A5670;font-size:1.05rem;line-height:1.7;margin:0 0 30px}
+.thanks .btn-home{display:inline-block;font-family:'Figtree',sans-serif;font-weight:600;font-size:.95rem;padding:13px 32px;background:var(--way-blue,#4878C4);color:#fff;text-decoration:none;transition:background .2s}
+.thanks .btn-home:hover{background:#3A66AE}
