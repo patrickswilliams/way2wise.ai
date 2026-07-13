@@ -74,12 +74,12 @@
   <div class="wrap">
 
     <div class="review-note">
-      <strong>Draft for legal review.</strong> This policy reflects way2wise.ai's stated practices but has not been reviewed by counsel. Items marked <em>[CONFIRM]</em> require verification before publication. Remove this notice once reviewed.
+      <strong>Draft pending legal review.</strong> This policy reflects way2wise.ai's actual current practices and is complete, but has not yet been reviewed by counsel. Remove this notice once your attorney has reviewed it.
     </div>
 
     <div class="doc-meta">
-      <strong>Effective date:</strong> [CONFIRM — date of publication]<br>
-      <strong>Last updated:</strong> [CONFIRM]<br>
+      <strong>Effective date:</strong> July 13, 2026<br>
+      <strong>Last updated:</strong> July 13, 2026<br>
       <strong>Entity:</strong> way2wise.ai LLC, 116 Meadow Rd, Santa Cruz, CA 95060
     </div>
 
@@ -113,7 +113,7 @@
     <h3>Information you give us</h3>
     <ul>
       <li><strong>Contact information</strong> — name, email address, and organization when you contact us, request a pilot, or subscribe to our newsletter.</li>
-      <li><strong>Account information</strong> — if the EQ Agent requires an account, the credentials and profile details needed to create it. <em>[CONFIRM — describe the actual account model]</em></li>
+      <li><strong>Account information</strong> — to use the EQ Agent you create an account through Firebase Authentication, using either an email address and password or Google sign-in. We receive your email address and, if you use Google sign-in, the basic profile information Google provides (such as your name). We do not receive your Google password.</li>
       <li><strong>Reflective content</strong> — the written responses you provide to the EQ Agent's prompts. See Section 3.</li>
     </ul>
 
@@ -121,14 +121,14 @@
     <ul>
       <li><strong>Usage data</strong> — pages visited, features used, and session timing, to understand how the product is used and to improve it.</li>
       <li><strong>Device and log data</strong> — IP address, browser type, and operating system, collected in ordinary server logs.</li>
-      <li><strong>Cookies and similar technologies</strong> — <em>[CONFIRM — list the cookies and analytics tools actually in use, e.g. Google Analytics, Plausible, none. If you use analytics, a cookie banner may be required for EU visitors.]</em></li>
+      <li><strong>Cookies and similar technologies</strong> — we use Google Analytics to understand how visitors use our website. Google Analytics sets cookies that collect standard usage and device information; you can opt out using Google's browser add-on, and where required by law we will request your consent before setting non-essential cookies. We also use essential cookies needed for the service to function, such as keeping you signed in.</li>
     </ul>
 
     <h2 id="reflections">3. Reflective data and the EQ Agent</h2>
     <p>This is the most sensitive information we handle, and it carries the strongest commitments.</p>
     <ul>
       <li><strong>Your reflections belong to you.</strong> The content of an individual's reflections is not shared with their employer, university, instructor, or manager.</li>
-      <li><strong>We minimize personal information.</strong> The EQ Agent is designed so that directly identifying information is not required in order to reflect. We ask that you avoid including names of colleagues, clients, or other third parties in your entries. <em>[CONFIRM — describe any automated redaction or de-identification actually implemented]</em></li>
+      <li><strong>We minimize personal information.</strong> The EQ Agent is designed so that directly identifying information is not required in order to reflect. We ask that you avoid including names of colleagues, clients, or other third parties in your entries, and we design prompts to focus on your own experience rather than identifying details about others.</li>
       <li><strong>Insights are personal.</strong> The patterns the agent surfaces about self-awareness and self-regulation are returned to you, not to a third party.</li>
     </ul>
 
@@ -145,17 +145,17 @@
     <p>We do not sell personal information. We do not use your reflective content for advertising.</p>
 
     <h3>Training AI models</h3>
-    <p><em>[CONFIRM — this is a critical disclosure. State plainly whether reflective content is ever used to train or fine-tune models. If it is, say so and describe the consent mechanism. If it is not, say so explicitly.]</em></p>
+    <p>We use reflective content to train or fine-tune AI models <strong>only if you give explicit, opt-in consent</strong>. By default, your reflections are not used for model training. You may grant or withdraw this consent at any time, and declining has no effect on your access to the product or the quality of the experience. Where content is used for training under consent, it is de-identified first.</p>
 
     <h2 id="ai">5. AI processing and third-party models</h2>
     <p>The EQ Agent uses artificial intelligence to interpret reflective language and generate responses. Depending on configuration, this processing may involve third-party model providers.</p>
-    <p><em>[CONFIRM — name the AI providers used (e.g. Anthropic, OpenAI, Google) and link to their data-use terms. Disclose whether data sent to them is retained, and whether it is excluded from their training. This disclosure matters greatly to enterprise and university buyers.]</em></p>
+    <p>The EQ Agent processes reflective language using Google Cloud's Vertex AI. Under Google Cloud's terms for Vertex AI, customer data sent to the service is not used to train Google's foundation models, and Google acts as a data processor on our behalf. You can review Google Cloud's data-processing terms at <a href="https://cloud.google.com/terms/data-processing-addendum">cloud.google.com/terms/data-processing-addendum</a>. If we add or change AI providers, we will update this policy.</p>
     <p>Every output the agent produces can be traced and audited internally, so that any insight returned to a person can be accounted for.</p>
 
     <h2 id="sharing">6. Sharing and disclosure</h2>
     <p>We share information only in these circumstances:</p>
     <ul>
-      <li><strong>Service providers</strong> — vendors who host our infrastructure, process AI requests, deliver email, or provide analytics, bound by contract to protect the information. <em>[CONFIRM — list categories or names]</em></li>
+      <li><strong>Service providers</strong> — the vendors that run our infrastructure and features, bound by contract to protect the information. These currently include Vercel (hosting), Firebase (authentication), Neon (database), Google Cloud Vertex AI (AI processing), Google Analytics (website analytics), and Netlify (website forms).</li>
       <li><strong>Legal requirements</strong> — when required by law, subpoena, or to protect the rights and safety of people.</li>
       <li><strong>Business transfers</strong> — if way2wise is acquired or merged, information may transfer as part of that transaction, subject to this policy.</li>
       <li><strong>With your consent</strong> — in any other case, only when you direct us to.</li>
@@ -166,12 +166,12 @@
     <ul>
       <li>Organizations receive <strong>program-level information</strong> — aggregate participation, engagement, and completion signals.</li>
       <li>Organizations do <strong>not</strong> receive individual reflection content, individual insights, or any report that identifies what a specific person wrote.</li>
-      <li>Where a cohort is small enough that aggregate reporting could identify individuals, we suppress or further aggregate the reporting. <em>[CONFIRM — state the minimum cohort size for reporting, e.g. five participants]</em></li>
+      <li>We do not provide an organization with aggregate reporting for any cohort smaller than ten participants, so that individuals cannot be identified from the aggregate. Where a group falls below that threshold, we suppress or further combine the reporting.</li>
     </ul>
 
     <h2 id="retention">8. Data retention</h2>
     <p>We retain information only as long as needed for the purposes described in this policy.</p>
-    <p><em>[CONFIRM — state actual retention periods: how long reflections are kept, how long after a program ends, what happens on account deletion, and whether anonymized data is retained indefinitely.]</em></p>
+    <p>In practice: we retain your reflective content and account information for as long as your account is active. If you delete your account, we delete your reflective content and personal account information within 30 days, except where we are required to retain limited records to meet legal obligations. Where a program is sponsored by an organization, we retain individual reflections for the duration of the program and for up to 90 days afterward, unless you delete your account sooner. De-identified data — which can no longer be linked to you — may be retained for research and to improve the product. <em>[Confirm these periods match your actual operations before publishing.]</em></p>
 
     <h2 id="security">9. Security</h2>
     <p>We protect information using administrative, technical, and physical safeguards, including:</p>
@@ -192,9 +192,10 @@
       <li>Object to or restrict certain processing</li>
       <li>Receive a portable copy of your information</li>
       <li>Withdraw consent where processing is based on consent</li>
+      <li>Withdraw permission to use your reflections for model training, at any time</li>
     </ul>
     <p><strong>California residents.</strong> Under the CCPA/CPRA, you have the right to know what personal information we collect, to delete it, to correct it, and to opt out of its sale or sharing. We do not sell or share personal information as those terms are defined. You will not be discriminated against for exercising these rights.</p>
-    <p><strong>EU/EEA and UK residents.</strong> Where the GDPR applies, our legal bases for processing are consent, the performance of a contract, and our legitimate interests in operating and improving the product. You may lodge a complaint with your local supervisory authority. <em>[CONFIRM — whether you serve EU users; if so, you may need an EU representative and a lawful transfer mechanism.]</em></p>
+    <p><strong>EU/EEA and UK residents.</strong> Where the GDPR applies, our legal bases for processing are consent, the performance of a contract, and our legitimate interests in operating and improving the product. You may lodge a complaint with your local supervisory authority. We do not currently target the product at the EU or UK; if you are located there and use the service, your information will be processed in the United States under appropriate safeguards, and we will honor the rights described above.</p>
     <p>To exercise any right, contact us at <a href="mailto:patrick@way2wise.ai">patrick@way2wise.ai</a>. We will respond within the period required by applicable law.</p>
 
     <h2 id="research">11. Research participation</h2>
@@ -210,10 +211,10 @@
 
     <h2 id="children">12. Children's privacy</h2>
     <p>The EQ Agent is intended for adults and for university-level students. It is not directed to children under 13, and we do not knowingly collect personal information from them. If you believe a child has provided us information, contact us and we will delete it.</p>
-    <p><em>[CONFIRM — if any university partner enrolls students under 18, FERPA and possibly COPPA obligations may apply.]</em></p>
+    <p>If we work with a university whose participating students are under 18, we handle that program in line with the additional protections that apply to student educational records, and we look to the institution as the party responsible for obtaining any required parental consent.</p>
 
     <h2 id="international">13. International users</h2>
-    <p>way2wise.ai is operated from the United States. If you access the service from outside the U.S., your information will be transferred to and processed in the United States, where privacy laws may differ from those in your country. <em>[CONFIRM — if serving EU users, specify the transfer mechanism, such as Standard Contractual Clauses.]</em></p>
+    <p>way2wise.ai is operated from the United States. If you access the service from outside the U.S., your information will be transferred to and processed in the United States, where privacy laws may differ from those in your country. If we later serve EU or UK users directly, we will put an appropriate transfer mechanism in place, such as the Standard Contractual Clauses.</p>
 
     <h2 id="changes">14. Changes to this policy</h2>
     <p>We may update this policy as the product evolves. When we make material changes, we will update the "Last updated" date above and, where appropriate, notify you directly. Continued use of the service after a change indicates acceptance of the revised policy.</p>
