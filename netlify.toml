@@ -7,5 +7,5 @@
 # so form redirects resolve whether they target /thanks or /thanks.html.
 #[[redirects]]
 #  from = "/thanks"
-#  to = "/thanks.html"
+#  to = "thanks.html"
 #  status = 200
