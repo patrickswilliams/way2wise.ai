@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dinner Vote</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Public+Sans:wght@400;600;700&display=swap');
+
+  :root {
+    --paper: #FBF7EF;
+    --ink: #22301F;
+    --forest: #2E4B34;
+    --marigold: #E0A428;
+    --brick: #B4482B;
+    --faint: #8A9184;
+    --line: #D8D2C4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Public Sans', 'Helvetica Neue', sans-serif;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 36px 18px 64px; }
+
+  .eyebrow { text-align: center; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--faint); font-weight: 600; }
+  h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 40px; margin: 6px 0 4px; text-align: center; }
+  .sub { text-align: center; font-size: 14px; color: var(--faint); margin-bottom: 26px; }
+
+  label.name { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+  input#voterName {
+    display: block; width: 100%; margin-top: 6px; padding: 10px 12px;
+    font-size: 15px; border: 1.5px solid var(--line); border-radius: 8px;
+    background: #fff; color: var(--ink); font-family: inherit;
+  }
+  input#voterName:focus-visible, button:focus-visible { outline: 2px solid var(--forest); outline-offset: 2px; }
+
+  .menu { margin-top: 20px; border: 1.5px solid var(--line); border-radius: 12px; background: #FFFDF8; padding: 8px 0; }
+  .area { padding: 10px 18px 4px; }
+  .area-name {
+    font-family: 'Fraunces', Georgia, serif; font-size: 15px; font-weight: 700;
+    color: var(--forest); border-bottom: 1.5px solid var(--line);
+    padding-bottom: 6px; margin-bottom: 4px;
+  }
+  .spot {
+    display: flex; align-items: flex-end; width: 100%; text-align: left;
+    background: transparent; border: none; border-radius: 8px;
+    padding: 10px 8px; cursor: pointer; color: var(--ink);
+    font-family: inherit; transition: background 0.15s ease;
+  }
+  .spot:hover { background: rgba(46,75,52,0.06); }
+  .spot.active { background: rgba(224,164,40,0.16); }
+  @media (prefers-reduced-motion: reduce) { .spot { transition: none; } }
+  .dot { width: 20px; font-size: 15px; color: var(--line); flex-shrink: 0; }
+  .spot.active .dot { color: var(--brick); }
+  .spot-name { font-weight: 600; font-size: 15px; }
+  .leader { flex: 1; border-bottom: 2px dotted var(--line); margin: 0 10px 5px; min-width: 16px; }
+  .spot-meta { font-size: 12.5px; color: var(--faint); white-space: nowrap; }
+  @media (max-width: 480px) {
+    .spot { flex-wrap: wrap; }
+    .leader { display: none; }
+    .spot-meta { width: 100%; padding-left: 20px; margin-top: 2px; }
+  }
+
+  #saveBtn {
+    display: block; width: 100%; margin-top: 18px; padding: 13px 0;
+    background: var(--forest); color: var(--paper); font-weight: 700;
+    font-size: 15px; border: none; border-radius: 10px; cursor: pointer;
+    font-family: inherit; letter-spacing: 0.02em;
+  }
+  #saveBtn:disabled { background: var(--faint); cursor: wait; }
+
+  .msg { margin-top: 10px; padding: 10px 14px; border-radius: 8px; font-size: 14px; display: none; }
+  .msg.show { display: block; }
+  .msg.error { background: rgba(180,72,43,0.1); color: var(--brick); }
+  .msg.ok { background: rgba(46,75,52,0.1); color: var(--forest); font-weight: 600; }
+  .msg button {
+    background: none; border: none; color: inherit; font-weight: 700;
+    text-decoration: underline; cursor: pointer; font-family: inherit; font-size: 14px; padding: 0;
+  }
+
+  .shared-note { margin-top: 10px; font-size: 12px; color: var(--faint); text-align: center; }
+
+  .tally-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    border-bottom: 2px solid var(--ink); padding-bottom: 6px; margin-top: 36px;
+  }
+  .tally-head h2 { font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 700; margin: 0; }
+  #refreshBtn {
+    background: none; border: 1.5px solid var(--line); border-radius: 8px;
+    padding: 5px 12px; font-size: 13px; font-weight: 600; color: var(--forest);
+    cursor: pointer; font-family: inherit;
+  }
+  #tallyBody { padding-top: 12px; }
+  .quiet { padding: 12px 4px; font-size: 14px; color: var(--faint); }
+  .row { margin-bottom: 14px; }
+  .row-top { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 4px; }
+  .row-top .n { font-weight: 600; }
+  .row-top .c { font-weight: 700; color: var(--forest); }
+  .bar-track { height: 10px; background: rgba(216,210,196,0.5); border-radius: 6px; overflow: hidden; }
+  .bar { height: 100%; background: var(--forest); border-radius: 6px; }
+  .bar.lead { background: var(--marigold); }
+  .who { font-size: 12px; color: var(--faint); margin-top: 3px; }
+  .total { font-size: 13px; color: var(--faint); margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Tonight's ballot</div>
+  <h1>Dinner Vote</h1>
+  <div class="sub">Seven spots, three neighborhoods, one table.</div>
+
+  <label class="name">Your name
+    <input id="voterName" placeholder="So we know who's coming">
+  </label>
+
+  <div class="menu" id="menu"></div>
+
+  <button id="saveBtn">Save my RSVP</button>
+  <div class="msg error" id="saveError"></div>
+  <div class="msg ok" id="saveOk"></div>
+  <div class="shared-note">Votes are shared: everyone using this widget can see names and picks.</div>
+
+  <div class="tally-head">
+    <h2>Live tally</h2>
+    <button id="refreshBtn">Refresh</button>
+  </div>
+  <div id="tallyBody"><div class="quiet">Counting votes…</div></div>
+</div>
+
+<script>
+const AREAS = [
+  { name: "Downtown LA", spots: [
+    { id: "sincerely-yours", label: "Sincerely Yours", phone: "(213) 573-4548", site: "sincerelyyours.la" },
+    { id: "perch", label: "Perch", phone: "(213) 802-1770", site: "perchla.com" },
+    { id: "settecento", label: "Settecento DTLA", phone: "(213) 757-7765", site: "settecentodtla.com" },
+  ]},
+  { name: "Santa Monica", spots: [
+    { id: "courtyard-kitchen", label: "The Courtyard Kitchen", phone: "(310) 587-2333", site: "courtyardkitchenla.com" },
+    { id: "elephante", label: "Élephante", phone: "(424) 320-2384", site: "elephanterestaurants.com" },
+  ]},
+  { name: "Culver City", spots: [
+    { id: "hatchet-hall", label: "Hatchet Hall", phone: "(310) 391-4222", site: "hatchethallla.com" },
+    { id: "fathers-office", label: "Father's Office", phone: "(310) 736-2224", site: "fathersoffice.com" },
+  ]},
+];
+const ALL = AREAS.flatMap(a => a.spots);
+const spotLabel = id => (ALL.find(s => s.id === id) || {}).label || id;
+
+let choice = null;
+
+// ——— Build the menu ———
+const menuEl = document.getElementById("menu");
+AREAS.forEach(area => {
+  const areaEl = document.createElement("div");
+  areaEl.className = "area";
+  const h = document.createElement("div");
+  h.className = "area-name";
+  h.textContent = area.name;
+  areaEl.appendChild(h);
+  area.spots.forEach(s => {
+    const b = document.createElement("button");
+    b.className = "spot";
+    b.dataset.id = s.id;
+    b.innerHTML =
+      '<span class="dot">○</span>' +
+      '<span class="spot-name"></span>' +
+      '<span class="leader" aria-hidden="true"></span>' +
+      '<span class="spot-meta"></span>';
+    b.querySelector(".spot-name").textContent = s.label;
+    b.querySelector(".spot-meta").textContent = s.phone + " · " + s.site;
+    b.addEventListener("click", () => {
+      choice = s.id;
+      document.querySelectorAll(".spot").forEach(x => {
+        const active = x.dataset.id === choice;
+        x.classList.toggle("active", active);
+        x.querySelector(".dot").textContent = active ? "●" : "○";
+      });
+      hide("saveError"); hide("saveOk");
+    });
+    areaEl.appendChild(b);
+  });
+  menuEl.appendChild(areaEl);
+});
+
+function show(id, html) {
+  const el = document.getElementById(id);
+  el.innerHTML = html;
+  el.classList.add("show");
+}
+function hide(id) { document.getElementById(id).classList.remove("show"); }
+
+// ——— Save an RSVP ———
+const saveBtn = document.getElementById("saveBtn");
+saveBtn.addEventListener("click", saveRsvp);
+
+async function saveRsvp() {
+  hide("saveError"); hide("saveOk");
+  if (!choice) { show("saveError", "Pick a restaurant first."); return; }
+
+  saveBtn.disabled = true;
+  saveBtn.textContent = "Saving…";
+  const name = (document.getElementById("voterName").value || "").trim() || "Anonymous";
+  const record = { name: name, choice: choice, at: Date.now() };
+  const key = "rsvp:" + Date.now() + "-" + Math.random().toString(36).slice(2, 8);
+
+  try {
+    const result = await window.storage.set(key, JSON.stringify(record), true);
+    if (!result) throw new Error("no result");
+    show("saveOk", "RSVP saved — you're in for " + spotLabel(choice) + ".");
+    loadTally();
+  } catch (e) {
+    show("saveError", 'Your vote didn\'t save. Check your connection and <button onclick="saveRsvp()">retry</button>.');
+  } finally {
+    saveBtn.disabled = false;
+    saveBtn.textContent = "Save my RSVP";
+  }
+}
+
+// ——— Live tally ———
+document.getElementById("refreshBtn").addEventListener("click", loadTally);
+const tallyBody = document.getElementById("tallyBody");
+
+async function loadTally() {
+  tallyBody.innerHTML = '<div class="quiet">Counting votes…</div>';
+
+  let keys = [];
+  try {
+    const listed = await window.storage.list("rsvp:", true);
+    keys = (listed && listed.keys) || [];
+  } catch (e) {
+    keys = []; // no records yet is not an error
+  }
+
+  if (keys.length === 0) {
+    tallyBody.innerHTML = '<div class="quiet">No votes yet — cast the first one above.</div>';
+    return;
+  }
+
+  const votes = [];
+  let failures = 0;
+  for (const key of keys) {
+    try {
+      const rec = await window.storage.get(key, true);
+      if (rec && rec.value) {
+        const v = JSON.parse(rec.value);
+        if (v && v.choice) votes.push(v);
+      }
+    } catch (e) { failures++; }
+  }
+
+  if (votes.length === 0 && failures === keys.length) {
+    tallyBody.innerHTML =
+      '<div class="msg error show" style="margin-top:12px">The tally didn\'t load. <button onclick="loadTally()">Try again</button></div>';
+    return;
+  }
+
+  const counts = {};
+  votes.forEach(v => {
+    if (!counts[v.choice]) counts[v.choice] = { count: 0, names: [] };
+    counts[v.choice].count++;
+    counts[v.choice].names.push(v.name);
+  });
+  const ranked = Object.entries(counts).sort((a, b) => b[1].count - a[1].count);
+  const max = ranked[0][1].count;
+
+  let html = "";
+  ranked.forEach(([id, info]) => {
+    const pct = Math.round((info.count / max) * 100);
+    html += '<div class="row">' +
+      '<div class="row-top"><span class="n">' + esc(spotLabel(id)) + '</span>' +
+      '<span class="c">' + info.count + ' vote' + (info.count === 1 ? '' : 's') + '</span></div>' +
+      '<div class="bar-track"><div class="bar' + (info.count === max ? ' lead' : '') + '" style="width:' + pct + '%"></div></div>' +
+      '<div class="who">' + esc(info.names.join(", ")) + '</div>' +
+      '</div>';
+  });
+  if (failures > 0) {
+    html += '<div class="quiet">' + failures + ' vote' + (failures === 1 ? '' : 's') + ' couldn\'t be read and ' + (failures === 1 ? 'was' : 'were') + ' skipped.</div>';
+  }
+  html += '<div class="total">' + votes.length + ' RSVP' + (votes.length === 1 ? '' : 's') + ' total</div>';
+  tallyBody.innerHTML = html;
+}
+
+function esc(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+loadTally();
+</script>
+</body>
+</html>
