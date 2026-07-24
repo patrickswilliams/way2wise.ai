@@ -114,6 +114,7 @@
   <div class="eyebrow">ODAF Celebrates</div>
   <h1>Brunch Vote</h1>
   <div class="sub">Seven spots, three neighborhoods, one table.</div>
+  <div class="msg" id="modeNote" style="background:rgba(224,164,40,0.15);color:#7A5A10;font-size:13px"></div>
 
   <label class="name">Your name
     <input id="voterName" placeholder="So we know who's coming">
@@ -153,6 +154,44 @@ const ALL = AREAS.flatMap(a => a.spots);
 const spotLabel = id => (ALL.find(s => s.id === id) || {}).label || id;
 
 let choice = null;
+
+// ——— Storage with in-memory fallback ———
+const memStore = {};
+let sharedMode = !!(window.storage && typeof window.storage.set === "function");
+function noteMode() {
+  const el = document.getElementById("modeNote");
+  if (!sharedMode) {
+    el.textContent = "Shared saving isn't available in this view, so votes are kept on this device only for this session. Open the widget full-screen to share the tally with everyone.";
+    el.classList.add("show");
+  } else {
+    el.classList.remove("show");
+  }
+}
+async function storeSet(key, value) {
+  if (sharedMode) {
+    const result = await window.storage.set(key, value, true);
+    if (!result) throw new Error("storage returned no result");
+    return result;
+  }
+  memStore[key] = value;
+  return { key: key, value: value };
+}
+async function storeList(prefix) {
+  if (sharedMode) {
+    try {
+      const listed = await window.storage.list(prefix, true);
+      return (listed && listed.keys) || [];
+    } catch (e) { return []; }
+  }
+  return Object.keys(memStore).filter(k => k.startsWith(prefix));
+}
+async function storeGet(key) {
+  if (sharedMode) {
+    const rec = await window.storage.get(key, true);
+    return rec ? rec.value : null;
+  }
+  return memStore[key] !== undefined ? memStore[key] : null;
+}
 
 // ——— Build the menu ———
 const menuEl = document.getElementById("menu");
@@ -223,22 +262,22 @@ async function saveRsvp() {
   const key = "rsvp:" + Date.now() + "-" + Math.random().toString(36).slice(2, 8);
 
   try {
-    if (!window.storage || typeof window.storage.set !== "function") {
-      throw new Error("Saved-data storage isn't available in this view \u2014 try opening the widget full-screen");
-    }
     let lastErr = null, ok = false;
     for (let attempt = 1; attempt <= 3 && !ok; attempt++) {
       try {
-        const result = await window.storage.set(key, JSON.stringify(record), true);
-        if (!result) throw new Error("storage returned no result");
+        await storeSet(key, JSON.stringify(record));
         ok = true;
       } catch (err) {
         lastErr = err;
+        if (attempt === 1 && sharedMode) {
+          // Shared storage may have just become unavailable — fall back locally.
+          try { if (!window.storage || typeof window.storage.set !== "function") { sharedMode = false; noteMode(); } } catch (x) {}
+        }
         if (attempt < 3) await new Promise(r => setTimeout(r, 400 * attempt));
       }
     }
     if (!ok) throw (lastErr || new Error("unknown storage error"));
-    show("saveOk", "RSVP saved \u2014 you're in for " + spotLabel(choice) + ".");
+    show("saveOk", "RSVP saved \u2014 you're in for " + spotLabel(choice) + "." + (sharedMode ? "" : " (Saved on this device only.)"));
     loadTally();
   } catch (e) {
     const detail = e && e.message ? " (" + esc(e.message) + ")" : "";
@@ -258,8 +297,7 @@ async function loadTally() {
 
   let keys = [];
   try {
-    const listed = await window.storage.list("rsvp:", true);
-    keys = (listed && listed.keys) || [];
+    keys = await storeList("rsvp:");
   } catch (e) {
     keys = []; // no records yet is not an error
   }
@@ -273,9 +311,9 @@ async function loadTally() {
   let failures = 0;
   for (const key of keys) {
     try {
-      const rec = await window.storage.get(key, true);
-      if (rec && rec.value) {
-        const v = JSON.parse(rec.value);
+      const val = await storeGet(key);
+      if (val) {
+        const v = JSON.parse(val);
         if (v && v.choice) votes.push(v);
       }
     } catch (e) { failures++; }
@@ -317,6 +355,7 @@ function esc(s) {
   return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
+noteMode();
 loadTally();
 </script>
 </body>
