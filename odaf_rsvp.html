@@ -434,11 +434,19 @@ async function loadResults(){
     }
     emptyNote.style.display = 'none';
     const entries = [];
-    for(const k of keys){
+    for(const kRaw of keys){
+      const k = typeof kRaw === 'string' ? kRaw : (kRaw && kRaw.key) ? kRaw.key : null;
+      if(!k) continue;
       try{
         const r = await window.storage.get(k, true);
         if(r && r.value){ entries.push(JSON.parse(r.value)); }
-      } catch(e){ /* skip missing/broken entries */ }
+      } catch(e){ console.error('Failed to load entry', k, e); }
+    }
+    if(entries.length === 0){
+      headcountLabel.textContent = '0 coming';
+      emptyNote.style.display = 'block';
+      namesNote.textContent = '';
+      return;
     }
     const coming = entries.filter(e => e.attending);
     headcountLabel.textContent = `${coming.length} coming`;
@@ -465,6 +473,7 @@ async function loadResults(){
     const comingNames = coming.map(e => e.name).join(', ');
     namesNote.textContent = comingNames ? `Coming: ${comingNames}` : '';
   } catch(err){
+    console.error('Failed to load results', err);
     headcountLabel.textContent = '\u2013';
     emptyNote.style.display = 'block';
     emptyNote.textContent = 'Could not load results right now.';
