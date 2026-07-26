@@ -75,6 +75,12 @@
     font-family: inherit; letter-spacing: 0.02em;
   }
   .fine { margin-top: 10px; font-size: 12px; color: var(--faint); text-align: center; }
+  .msg { margin-top: 12px; padding: 11px 14px; border-radius: 8px; font-size: 14px; display: none; }
+  .msg.show { display: block; }
+  .msg.ok { background: rgba(11,37,87,0.08); color: var(--forest); font-weight: 600; }
+  .msg.error { background: rgba(232,88,8,0.12); color: #A63D02; }
+  .msg.error button { background: none; border: none; color: inherit; font-weight: 700; text-decoration: underline; cursor: pointer; font-family: inherit; font-size: 14px; padding: 0; }
+  button[type="submit"]:disabled { background: var(--faint); cursor: wait; }
   .hidden { display: none; }
 </style>
 </head>
@@ -161,9 +167,51 @@
       </div>
     </div>
 
-    <button type="submit">Save my RSVP</button>
+    <button type="submit" id="submitBtn">Save my RSVP</button>
+    <div class="msg ok" id="okMsg"></div>
+    <div class="msg error" id="errMsg"></div>
     <div class="fine">One vote per person — results are tallied by the organizers.</div>
   </form>
 </div>
+<script>
+const form = document.querySelector('form[name="brunch-vote"]');
+const btn = document.getElementById('submitBtn');
+const okMsg = document.getElementById('okMsg');
+const errMsg = document.getElementById('errMsg');
+
+form.addEventListener('submit', async function (e) {
+  e.preventDefault();
+  okMsg.classList.remove('show');
+  errMsg.classList.remove('show');
+  btn.disabled = true;
+  btn.textContent = 'Saving\u2026';
+
+  const data = new FormData(form);
+  const body = new URLSearchParams();
+  for (const [k, v] of data.entries()) body.append(k, v);
+  // Make absolutely sure form-name matches the registered form
+  body.set('form-name', 'brunch-vote');
+
+  try {
+    const res = await fetch(window.location.pathname, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString()
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const name = (data.get('name') || '').trim();
+    const pick = data.get('restaurant') || 'your pick';
+    okMsg.textContent = 'RSVP saved' + (name ? ', ' + name : '') + ' \u2014 you\u2019re in for ' + pick + '. Change your mind? Pick again and resubmit.';
+    okMsg.classList.add('show');
+  } catch (err) {
+    errMsg.innerHTML = 'Your vote didn\u2019t save (' + (err && err.message ? err.message : 'network error') +
+      '). <button type="button" onclick="document.getElementById(\'submitBtn\').click()">Retry</button>';
+    errMsg.classList.add('show');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Save my RSVP';
+  }
+});
+</script>
 </body>
 </html>
