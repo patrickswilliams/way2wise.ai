@@ -91,8 +91,8 @@
   <h1>Grad Brunch</h1>
   <div class="sub">Seven spots, three neighborhoods, one table.</div>
 
-  <form name="brunch-vote" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="brunch-vote">
+  <form name="brunch-form" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="brunch-form">
     <p class="hidden"><label>Leave this empty: <input name="bot-field"></label></p>
 
     <label class="name-label">Your name
@@ -174,7 +174,7 @@
   </form>
 </div>
 <script>
-const form = document.querySelector('form[name="brunch-vote"]');
+const form = document.querySelector('form[name="brunch-form"]');
 const btn = document.getElementById('submitBtn');
 const okMsg = document.getElementById('okMsg');
 const errMsg = document.getElementById('errMsg');
@@ -190,7 +190,7 @@ form.addEventListener('submit', async function (e) {
   const body = new URLSearchParams();
   for (const [k, v] of data.entries()) body.append(k, v);
   // Make absolutely sure form-name matches the registered form
-  body.set('form-name', 'brunch-vote');
+  body.set('form-name', 'brunch-form');
 
   try {
     const res = await fetch(window.location.pathname, {
