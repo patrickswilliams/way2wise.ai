@@ -93,7 +93,7 @@
 
   <form name="brunch-form" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field">
     <input type="hidden" name="form-name" value="brunch-form">
-    <p class="hidden"><label>Leave this empty: <input name="bot-field"></label></p>
+    <p class="hidden" aria-hidden="true"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 
     <label class="name-label">Your name
       <input type="text" name="name" placeholder="So we know who's coming" required>
@@ -188,12 +188,15 @@ form.addEventListener('submit', async function (e) {
 
   const data = new FormData(form);
   const body = new URLSearchParams();
-  for (const [k, v] of data.entries()) body.append(k, v);
+  for (const [k, v] of data.entries()) {
+    if (k === 'bot-field') continue; // never let autofill poison the honeypot
+    body.append(k, v);
+  }
   // Make absolutely sure form-name matches the registered form
   body.set('form-name', 'brunch-form');
 
   try {
-    const res = await fetch(window.location.pathname, {
+    const res = await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: body.toString()
