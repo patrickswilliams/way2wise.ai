@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>way2wise.ai — Learn wisely with AI</title>
+<script>
+(function () {
+  var stored = localStorage.getItem('w2w-theme');
+  var theme = stored || 'light';
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
 
 
 <link rel="icon" type="image/png" href="/favicon-circle/favicon-96x96.png" sizes="96x96" />
@@ -32,6 +39,7 @@
         <a href="#research">Research</a>
         <a href="#about">About</a>
         <a class="btn btn-primary" href="#partner">Partner with us</a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">🌙</button>
       </div>
     </nav>
   </div>
@@ -99,6 +107,9 @@
           </div>
           <div class="column-text">The agent surfaces emotional patterns in your own language, mapped to self-awareness and self-regulation.</div>
         </div>
+      </div>
+      <div class="product-cta" style="margin-top:36px">
+        <a class="btn btn-primary" href="eq-agent.html">Try the EQ Agent &rarr;</a>
       </div>
     </div>
   </div>
@@ -226,6 +237,25 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function updateIcon(theme) {
+    btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    btn.setAttribute('aria-pressed', theme === 'dark');
+  }
+  updateIcon(document.documentElement.getAttribute('data-theme') || 'light');
+  btn.addEventListener('click', function () {
+    var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    var next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('w2w-theme', next);
+    updateIcon(next);
+  });
+})();
+</script>
 
 </body>
 </html>

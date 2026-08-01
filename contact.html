@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>way2wise.ai — Contact</title>
+<script>
+(function () {
+  var stored = localStorage.getItem('w2w-theme');
+  var theme = stored || 'light';
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
 
 <link rel="icon" type="image/png" href="/favicon-square/favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="/favicon-square/favicon.svg" />
@@ -21,45 +28,45 @@
 .doc-hero h1{font-family:'Quicksand',sans-serif;font-weight:600;font-size:clamp(1.9rem,4vw,2.8rem);margin:0 0 12px;letter-spacing:-.015em}
 .doc-hero p{color:#C9D6EE;max-width:620px;margin:0;font-family:'Figtree',sans-serif}
 
-.contact-section{padding:72px 0 88px;background:#fff}
+.contact-section{padding:72px 0 88px;background:var(--bg-page)}
 .contact-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:start}
 
 /* Form */
 .form-field{margin-bottom:22px}
-.form-field label{display:block;font-family:'Quicksand',sans-serif;font-weight:600;font-size:.9rem;color:var(--deep-blue,#27406E);margin-bottom:7px}
+.form-field label{display:block;font-family:'Quicksand',sans-serif;font-weight:600;font-size:.9rem;color:var(--heading,#27406E);margin-bottom:7px}
 .form-field .req{color:var(--wise-green,#1F8A5F)}
 .form-field input,.form-field select,.form-field textarea{
-  width:100%;font-family:'Figtree',sans-serif;font-size:1rem;color:#1E2A40;
-  padding:12px 14px;border:1px solid var(--sky-2,#DCE7F7);background:#fff;border-radius:0;
+  width:100%;font-family:'Figtree',sans-serif;font-size:1rem;color:var(--ink,#1E2A40);
+  padding:12px 14px;border:1px solid var(--sky-2,#DCE7F7);background:var(--bg-page,#fff);border-radius:0;
   transition:border-color .2s,box-shadow .2s;
 }
 .form-field textarea{min-height:150px;resize:vertical}
 .form-field input:focus,.form-field select:focus,.form-field textarea:focus{
   outline:none;border-color:var(--way-blue,#4878C4);box-shadow:0 0 0 3px rgba(72,120,196,.12);
 }
-.form-hint{font-family:'Figtree',sans-serif;font-size:.85rem;color:#6B7689;margin-top:6px}
+.form-hint{font-family:'Figtree',sans-serif;font-size:.85rem;color:var(--muted,#6B7689);margin-top:6px}
 .form-submit{
   font-family:'Figtree',sans-serif;font-weight:600;font-size:.95rem;
   padding:13px 32px;background:var(--way-blue,#4878C4);color:#fff;
   border:none;border-radius:0;cursor:pointer;transition:background .2s;
 }
-.form-submit:hover{background:#3A66AE}
+.form-submit:hover{background:var(--btn-primary-hover,#3A66AE)}
 .form-submit:focus-visible{outline:3px solid var(--way-blue,#4878C4);outline-offset:3px}
 /* Honeypot — hidden from humans, catches bots */
 .hp-field{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
 
 /* Sidebar */
 .contact-aside{background:var(--sky,#EEF3FB);border:1px solid var(--sky-2,#DCE7F7);padding:34px 30px}
-.contact-aside h2{font-family:'Quicksand',sans-serif;font-weight:600;font-size:1.15rem;color:var(--deep-blue,#27406E);margin:0 0 16px}
+.contact-aside h2{font-family:'Quicksand',sans-serif;font-weight:600;font-size:1.15rem;color:var(--heading,#27406E);margin:0 0 16px}
 .contact-aside h2:not(:first-child){margin-top:30px}
-.contact-aside p{font-family:'Figtree',sans-serif;font-size:.95rem;color:#4A5670;margin:0 0 14px;line-height:1.65}
+.contact-aside p{font-family:'Figtree',sans-serif;font-size:.95rem;color:var(--muted,#4A5670);margin:0 0 14px;line-height:1.65}
 .contact-aside a{color:var(--way-blue,#4878C4)}
 .contact-aside ul{list-style:none;margin:0;padding:0}
-.contact-aside li{font-family:'Figtree',sans-serif;font-size:.94rem;color:#3A4660;padding:8px 0 8px 26px;position:relative;border-top:1px solid var(--sky-2,#DCE7F7)}
+.contact-aside li{font-family:'Figtree',sans-serif;font-size:.94rem;color:var(--muted,#3A4660);padding:8px 0 8px 26px;position:relative;border-top:1px solid var(--sky-2,#DCE7F7)}
 .contact-aside li:first-child{border-top:none}
 .contact-aside li::before{content:"";position:absolute;left:0;top:17px;width:14px;border-top:2px dashed var(--wise-green,#1F8A5F)}
 
-.intro-copy{font-family:'Figtree',sans-serif;color:#4A5670;font-size:1.05rem;margin:0 0 34px;max-width:560px;line-height:1.7}
+.intro-copy{font-family:'Figtree',sans-serif;color:var(--muted,#4A5670);font-size:1.05rem;margin:0 0 34px;max-width:560px;line-height:1.7}
 
 @media (max-width:840px){
   .contact-grid{grid-template-columns:1fr;gap:40px}
@@ -79,6 +86,7 @@
         <a href="index.html#research">Research</a>
         <a href="index.html#about">About</a>
         <a class="btn btn-primary" href="index.html#partner">Partner with us</a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">🌙</button>
       </div>
     </nav>
   </div>
@@ -183,6 +191,25 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function updateIcon(theme) {
+    btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    btn.setAttribute('aria-pressed', theme === 'dark');
+  }
+  updateIcon(document.documentElement.getAttribute('data-theme') || 'light');
+  btn.addEventListener('click', function () {
+    var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    var next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('w2w-theme', next);
+    updateIcon(next);
+  });
+})();
+</script>
 
 </body>
 </html>

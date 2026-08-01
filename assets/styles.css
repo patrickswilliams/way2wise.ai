@@ -34,6 +34,34 @@
     --radius: 14px;
     --display: 'Quicksand', sans-serif;
     --body: 'Figtree', sans-serif;
+
+    /* Semantic surface/text roles (theme-aware) */
+    --bg-page: var(--white);
+    --bg-tint: var(--sky);
+    --border-tint: var(--sky-2);
+    --heading: var(--deep-blue);
+    --muted: #4A5670;
+    --header-bg: rgba(255, 255, 255, .92);
+    --btn-primary-hover: #3A66AE;
+    --btn-ghost-hover: #F0F8F4;
+}
+
+/* ---------- Dark theme ---------- */
+:root[data-theme="dark"] {
+    --way-blue: #6C93D6;
+    --ink: #E7ECF5;
+    --sky: #0E1526;
+    --sky-2: #26314A;
+    --wise-green: #34C48A;
+
+    --bg-page: #0C1220;
+    --bg-tint: #10182A;
+    --border-tint: #26314A;
+    --heading: #A9C4EE;
+    --muted: #A9B4C9;
+    --header-bg: rgba(12, 18, 32, .85);
+    --btn-primary-hover: #5C86D2;
+    --btn-ghost-hover: rgba(52, 196, 138, .12);
 }
 
 /* ---------- Global Resets & Common Classes ---------- */
@@ -50,7 +78,7 @@ html {
 body {
     font-family: var(--body);
     color: var(--ink);
-    background: var(--white);
+    background: var(--bg-page);
     line-height: 1.65;
     font-size: 17px;
 }
@@ -104,12 +132,12 @@ h2 {
     font-size: clamp(1.7rem, 3.2vw, 2.3rem);
     letter-spacing: -.01em;
     margin-bottom: 14px;
-    color: var(--deep-blue);
+    color: var(--heading);
 }
 
 .lede {
     font-size: 1.1rem;
-    color: #4A5670;
+    color: var(--muted);
     max-width: 640px;
 }
 
@@ -117,9 +145,9 @@ h2 {
 header {
     position: sticky;
     top: 0;
-    background: rgba(255, 255, 255, .92);
+    background: var(--header-bg);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--sky-2);
+    border-bottom: 1px solid var(--border-tint);
     z-index: 50;
 }
 
@@ -165,7 +193,7 @@ nav {
 }
 
 .nav-links a {
-    color: var(--deep-blue);
+    color: var(--heading);
     transition: color .2s;
 }
 
@@ -178,12 +206,33 @@ nav {
 }
 
 .nav-links a.btn-primary:active {
-    color: var(--deep-blue);
-    background: var(--white);
+    color: var(--heading);
+    background: var(--bg-page);
 }
 
 .nav-links a:hover {
     color: var(--way-blue);
+}
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--border-tint);
+    background: var(--bg-tint);
+    color: var(--heading);
+    font-size: 1.05rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+}
+
+.theme-toggle:hover {
+    background: var(--btn-ghost-hover);
+    transform: translateY(-1px);
 }
 
 /* ---------- Buttons ---------- */
@@ -212,7 +261,7 @@ a:focus-visible {
 }
 
 .btn-primary:hover {
-    background: #3A66AE;
+    background: var(--btn-primary-hover);
     transform: translateY(-1px);
 }
 
@@ -223,7 +272,7 @@ a:focus-visible {
 }
 
 .btn-ghost:hover {
-    background: #F0F8F4;
+    background: var(--btn-ghost-hover);
 }
 
 /* ---------- Hero (Standard / Old) ---------- */
@@ -358,7 +407,7 @@ a:focus-visible {
 
 /* ---------- Product / EQ Agent Section ---------- */
 .product {
-    background: var(--white);
+    background: var(--bg-page);
 }
 
 .product-row {
@@ -381,7 +430,7 @@ a:focus-visible {
 }
 
 .custom-content {
-    color: #676759;
+    color: var(--muted);
     font-family: 'Comfortaa-Bold', sans-serif;
     font-weight: normal;
 }
@@ -399,10 +448,10 @@ a:focus-visible {
 }
 
 .mirror-card {
-    background: var(--sky);
+    background: var(--bg-tint);
     border-radius: var(--radius);
     padding: 36px;
-    border: 1px solid var(--sky-2);
+    border: 1px solid var(--border-tint);
 }
 
 .chat-line {
@@ -432,7 +481,7 @@ a:focus-visible {
 }
 
 .bubble {
-    background: var(--white);
+    background: var(--bg-page);
     border-radius: 12px;
     padding: 12px 16px;
     font-size: .94rem;
@@ -468,12 +517,12 @@ a:focus-visible {
 .steps b {
     display: block;
     font-weight: 600;
-    color: var(--deep-blue);
+    color: var(--heading);
 }
 
 .steps p {
     font-size: .95rem;
-    color: #4A5670;
+    color: var(--muted);
 }
 
 /* Product Columns Layout */
@@ -562,7 +611,7 @@ a:focus-visible {
 
 /* ---------- Markets Section ---------- */
 .markets {
-    background: var(--sky);
+    background: var(--bg-tint);
 }
 
 .market-grid {
@@ -573,10 +622,10 @@ a:focus-visible {
 }
 
 .market-card {
-    background: var(--white);
+    background: var(--bg-page);
     border-radius: var(--radius);
     padding: 38px 34px;
-    border: 1px solid var(--sky-2);
+    border: 1px solid var(--border-tint);
     transition: transform .18s, box-shadow .18s;
     display: flex;
     flex-direction: column;
@@ -591,13 +640,13 @@ a:focus-visible {
     font-family: var(--display);
     font-weight: 600;
     font-size: 1.35rem;
-    color: var(--deep-blue);
+    color: var(--heading);
     margin-bottom: 12px;
 }
 
 .market-card p {
     font-size: .98rem;
-    color: #4A5670;
+    color: var(--muted);
     margin-bottom: 18px;
 }
 
@@ -610,7 +659,7 @@ a:focus-visible {
     font-size: .94rem;
     padding: 7px 0 7px 26px;
     position: relative;
-    color: #3A4660;
+    color: var(--muted);
 }
 
 .market-card li::before {
@@ -634,7 +683,7 @@ a:focus-visible {
     letter-spacing: .1em;
     text-transform: uppercase;
     color: var(--way-blue);
-    background: var(--sky);
+    background: var(--bg-tint);
     border-radius: 999px;
     padding: 5px 14px;
     margin-bottom: 16px;
@@ -737,7 +786,7 @@ a:focus-visible {
 
 /* ---------- Integration Section ---------- */
 .integrate {
-    background: var(--sky);
+    background: var(--bg-tint);
 }
 
 .integrate-grid {
@@ -748,29 +797,29 @@ a:focus-visible {
 }
 
 .int-card {
-    border: 1px solid var(--sky-2);
+    border: 1px solid var(--border-tint);
     border-left: 3px solid var(--wise-green);
     border-radius: 0 var(--radius) var(--radius) 0;
     padding: 28px 26px;
-    background: var(--white);
+    background: var(--bg-page);
 }
 
 .int-card h3 {
     font-family: var(--display);
     font-weight: 600;
     font-size: 1.12rem;
-    color: var(--deep-blue);
+    color: var(--heading);
     margin-bottom: 10px;
 }
 
 .int-card p {
     font-size: .96rem;
-    color: #4A5670;
+    color: var(--muted);
 }
 
 /* ---------- About Section ---------- */
 .about {
-    background: var(--white);
+    background: var(--bg-page);
 }
 
 .about-grid {
@@ -782,8 +831,8 @@ a:focus-visible {
 }
 
 .about-card {
-    background: var(--sky);
-    border: 1px solid var(--sky-2);
+    background: var(--bg-tint);
+    border: 1px solid var(--border-tint);
     border-radius: var(--radius);
     padding: 34px;
     position: sticky;
@@ -800,7 +849,7 @@ a:focus-visible {
 
 .about-card .title {
     font-size: .95rem;
-    color: #4A5670;
+    color: var(--muted);
     margin-bottom: 20px;
 }
 
@@ -812,8 +861,8 @@ a:focus-visible {
     font-size: .93rem;
     padding: 8px 0 8px 26px;
     position: relative;
-    color: #3A4660;
-    border-top: 1px solid var(--sky-2);
+    color: var(--muted);
+    border-top: 1px solid var(--border-tint);
 }
 
 .about-card li:first-child {
@@ -831,20 +880,20 @@ a:focus-visible {
 
 .about-prose p {
     font-size: 1.04rem;
-    color: #3A4660;
+    color: var(--muted);
     margin-bottom: 18px;
 }
 
 .about-prose p:first-of-type {
     font-size: 1.12rem;
-    color: var(--deep-blue);
+    color: var(--heading);
 }
 
 .about-prose .pull {
     font-family: var(--display);
     font-weight: 600;
     font-size: 1.2rem;
-    color: var(--deep-blue);
+    color: var(--heading);
     border-left: 3px dashed var(--wise-green);
     padding-left: 18px;
     margin: 26px 0;
@@ -853,7 +902,7 @@ a:focus-visible {
 
 /* ---------- Value Section (Enterprise) ---------- */
 .value {
-    background: var(--white);
+    background: var(--bg-page);
 }
 
 .value-grid {
@@ -864,8 +913,8 @@ a:focus-visible {
 }
 
 .value-card {
-    background: var(--sky);
-    border: 1px solid var(--sky-2);
+    background: var(--bg-tint);
+    border: 1px solid var(--border-tint);
     border-radius: var(--radius);
     padding: 30px 26px;
 }
@@ -874,18 +923,18 @@ a:focus-visible {
     font-family: var(--display);
     font-weight: 600;
     font-size: 1.15rem;
-    color: var(--deep-blue);
+    color: var(--heading);
     margin-bottom: 10px;
 }
 
 .value-card p {
     font-size: .96rem;
-    color: #4A5670;
+    color: var(--muted);
 }
 
 /* ---------- FAQ Section (Enterprise) ---------- */
 .faq {
-    background: var(--sky);
+    background: var(--bg-tint);
 }
 
 .faq-list {
@@ -894,8 +943,8 @@ a:focus-visible {
 }
 
 .faq-item {
-    background: var(--white);
-    border: 1px solid var(--sky-2);
+    background: var(--bg-page);
+    border: 1px solid var(--border-tint);
     border-left: 3px solid var(--wise-green);
     border-radius: 0 var(--radius) var(--radius) 0;
     padding: 32px 36px;
@@ -906,14 +955,14 @@ a:focus-visible {
     font-family: var(--display);
     font-weight: 600;
     font-size: 1.25rem;
-    color: var(--deep-blue);
+    color: var(--heading);
     margin-bottom: 14px;
     line-height: 1.3;
 }
 
 .faq-item p {
     font-size: 1.02rem;
-    color: #3A4660;
+    color: var(--muted);
     margin-bottom: 14px;
 }
 
@@ -953,7 +1002,7 @@ a:focus-visible {
 
 .cta {
     text-align: center;
-    background: var(--white);
+    background: var(--bg-page);
 }
 
 .cta-box {
@@ -962,7 +1011,7 @@ a:focus-visible {
     border: 2px solid var(--wise-green);
     border-radius: 0;
     padding: 54px 40px;
-    background: #FBFDFC;
+    background: var(--bg-tint);
 }
 
 .cta-box .lede {
@@ -971,10 +1020,10 @@ a:focus-visible {
 
 /* ---------- Footer ---------- */
 footer {
-    background: var(--sky);
+    background: var(--bg-tint);
     padding: 48px 0;
     font-size: .92rem;
-    color: #4A5670;
+    color: var(--muted);
 }
 
 .foot {
@@ -1037,7 +1086,7 @@ footer {
 .foot a[href^="mailto:"] {
     text-decoration: underline;
     text-underline-offset: 2px;
-    text-decoration-color: var(--sky-2);
+    text-decoration-color: var(--border-tint);
 }
 
 .foot a[href^="mailto:"]:hover {
@@ -1046,10 +1095,10 @@ footer {
 }
 
 
-.thanks{min-height:60vh;display:flex;align-items:center;justify-content:center;padding:100px 24px;background:#fff;text-align:center}
-.thanks-box{max-width:600px;border:2px solid var(--wise-green,#1F8A5F);background:#FBFDFC;padding:60px 44px}
+.thanks{min-height:60vh;display:flex;align-items:center;justify-content:center;padding:100px 24px;background:var(--bg-page);text-align:center}
+.thanks-box{max-width:600px;border:2px solid var(--wise-green,#1F8A5F);background:var(--bg-tint);padding:60px 44px}
 .thanks .eyebrow{display:inline-block;font-family:'Quicksand',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--wise-green,#1F8A5F);margin-bottom:14px}
 .thanks h1{font-family:'Quicksand',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.4vw,2.3rem);color:var(--deep-blue,#27406E);margin:0 0 16px;letter-spacing:-.015em}
-.thanks p{font-family:'Figtree',sans-serif;color:#4A5670;font-size:1.05rem;line-height:1.7;margin:0 0 30px}
+.thanks p{font-family:'Figtree',sans-serif;color:var(--muted);font-size:1.05rem;line-height:1.7;margin:0 0 30px}
 .thanks .btn-home{display:inline-block;font-family:'Figtree',sans-serif;font-weight:600;font-size:.95rem;padding:13px 32px;background:var(--way-blue,#4878C4);color:#fff;text-decoration:none;transition:background .2s}
-.thanks .btn-home:hover{background:#3A66AE}
+.thanks .btn-home:hover{background:var(--btn-primary-hover)}
