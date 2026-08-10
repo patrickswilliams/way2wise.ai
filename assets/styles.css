@@ -581,6 +581,14 @@ a:focus-visible {
     font-family: 'Comfortaa-Bold', sans-serif;
 }
 
+/* Hidden on desktop, where hovering already reveals the description —
+   shown only below the mobile breakpoint, where tapping is the only way
+   to see it and there's otherwise no visual cue that the circle responds
+   to touch at all (a CSS cursor: pointer has no effect on touch input). */
+.column-hint {
+    display: none;
+}
+
 .column-text {
     color: var(--white);
     font-family: 'Comfortaa-Bold', sans-serif;
@@ -1084,6 +1092,18 @@ footer {
         position: static;
         margin: 0 auto;
         opacity: 1 !important;
+    }
+
+    .column-hint {
+        display: block;
+        margin-top: 10px;
+        font-family: var(--body);
+        font-size: 0.78rem;
+        letter-spacing: 0.02em;
+        color: var(--white);
+        opacity: 0.8;
+        text-decoration: underline;
+        text-underline-offset: 3px;
     }
 
     .column-text {
