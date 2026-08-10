@@ -1062,6 +1062,13 @@ footer {
 
     .product-column {
         min-width: 0;
+        min-height: 340px;
+        overflow: visible;
+    }
+
+    .column-text {
+        max-width: 100%;
+        padding: 28px 20px;
     }
 
     .about-card {
