@@ -1060,15 +1060,36 @@ footer {
         gap: 32px;
     }
 
+    /* The hover-to-reveal interaction (circle fades out, description fades
+       in as an absolutely-positioned overlay) doesn't work on touch devices,
+       and an absolutely-positioned element can never influence its parent's
+       height — so no min-height guess ever fits the text correctly. Below
+       this breakpoint, drop the overlay trick entirely and show both the
+       circle and the description stacked in normal flow, so each box is
+       naturally exactly as tall as its own content requires. */
     .product-column {
         min-width: 0;
-        min-height: 340px;
+        min-height: 0;
+        height: auto;
+        display: block;
         overflow: visible;
+        padding: 32px 20px;
+    }
+
+    .column-content {
+        position: static;
+        margin: 0 auto 20px;
+        opacity: 1 !important;
+        pointer-events: none;
     }
 
     .column-text {
+        position: static;
         max-width: 100%;
-        padding: 28px 20px;
+        padding: 0;
+        text-align: center;
+        opacity: 1 !important;
+        pointer-events: none;
     }
 
     .about-card {
