@@ -257,5 +257,21 @@
 })();
 </script>
 
+<script>
+(function () {
+  // On mobile (see the max-width: 840px rules in styles.css), tapping a
+  // product column toggles which of the circle / description is shown, in
+  // normal document flow instead of the hover-based absolute overlay used
+  // above that breakpoint. Harmless no-op above 840px, since the .is-open
+  // CSS only applies within that media query.
+  var columns = document.querySelectorAll('.product-column');
+  columns.forEach(function (col) {
+    col.addEventListener('click', function () {
+      col.classList.toggle('is-open');
+    });
+  });
+})();
+</script>
+
 </body>
 </html>

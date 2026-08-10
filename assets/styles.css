@@ -1060,13 +1060,16 @@ footer {
         gap: 32px;
     }
 
-    /* The hover-to-reveal interaction (circle fades out, description fades
-       in as an absolutely-positioned overlay) doesn't work on touch devices,
-       and an absolutely-positioned element can never influence its parent's
-       height — so no min-height guess ever fits the text correctly. Below
-       this breakpoint, drop the overlay trick entirely and show both the
-       circle and the description stacked in normal flow, so each box is
-       naturally exactly as tall as its own content requires. */
+    /* The hover-to-reveal interaction relies on column-text being an
+       absolutely-positioned overlay — which can never influence its
+       parent's height, so no min-height guess ever fit the text correctly
+       (it would either clip or bleed into the next box). Below this
+       breakpoint, tapping toggles a real .is-open class (see the click
+       handler at the bottom of index.html) that swaps the circle and
+       description via display: none/block in normal document flow, so
+       whichever one is showing sizes the box correctly. opacity is forced
+       here so mobile Chrome's touch-triggered :hover can't interfere —
+       display is the only thing controlling visibility on mobile. */
     .product-column {
         min-width: 0;
         min-height: 0;
@@ -1074,22 +1077,31 @@ footer {
         display: block;
         overflow: visible;
         padding: 32px 20px;
+        cursor: pointer;
     }
 
     .column-content {
         position: static;
-        margin: 0 auto 20px;
+        margin: 0 auto;
         opacity: 1 !important;
-        pointer-events: none;
     }
 
     .column-text {
         position: static;
         max-width: 100%;
-        padding: 0;
+        padding: 20px 0 0;
         text-align: center;
         opacity: 1 !important;
         pointer-events: none;
+        display: none;
+    }
+
+    .product-column.is-open .column-content {
+        display: none;
+    }
+
+    .product-column.is-open .column-text {
+        display: block;
     }
 
     .about-card {
