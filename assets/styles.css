@@ -1050,6 +1050,7 @@ footer {
     }
 
     .product-grid,
+    .product-columns,
     .market-grid,
     .research-grid,
     .about-grid,
@@ -1057,6 +1058,10 @@ footer {
     .value-grid {
         grid-template-columns: 1fr;
         gap: 32px;
+    }
+
+    .product-column {
+        min-width: 0;
     }
 
     .about-card {
