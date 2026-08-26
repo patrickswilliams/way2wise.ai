@@ -24,12 +24,13 @@
     --hero-cta-y: 260px;
 
     /* Embedded stylesheet variables */
-    --way-blue: #4878C4;
+    --way-blue: #3D6EBD; /* darkened from #4878C4 2026-08-25 — used as both a button background and inline text color, so the token needs to satisfy WCAG AA (4.5:1) in both roles; same hue/saturation */
+    --way-blue-text: var(--way-blue); /* light mode: one value satisfies both roles. Dark mode overrides this separately below — see that block for why. */
     --deep-blue: #27406E;
     --ink: #1E2A40;
     --sky: #EEF3FB;
     --sky-2: #DCE7F7;
-    --wise-green: #1F8A5F;
+    --wise-green: #1C7E57; /* darkened from #1F8A5F 2026-08-25 — same reasoning as --way-blue */
     --white: #FFFFFF;
     --radius: 14px;
     --display: 'Quicksand', sans-serif;
@@ -48,7 +49,12 @@
 
 /* ---------- Dark theme ---------- */
 :root[data-theme="dark"] {
-    --way-blue: #6C93D6;
+    --way-blue: #4475CB; /* darkened from #6C93D6 2026-08-25 — original was 3.09:1 against white button text, too light to ever pass at 4.5:1; same hue/saturation */
+    /* Dark mode's button role (darker, more contrast against white text)
+       and text-on-dark-background role pull in opposite directions — no
+       single lightness satisfies both at once, unlike light mode. This is
+       lighter than --way-blue specifically for the inline-link/text uses. */
+    --way-blue-text: #5180CF;
     --ink: #E7ECF5;
     --sky: #0E1526;
     --sky-2: #26314A;
@@ -86,6 +92,18 @@ body {
 a {
     color: inherit;
     text-decoration: none;
+}
+
+/* Links inside flowing body copy need a non-color cue to be distinguishable
+   (WCAG 1.4.1) — the reset above removes the underline every <a> would
+   otherwise get, and these are colored but never got it back. Mirrors the
+   pattern already used for footer email links below. */
+p a,
+li a,
+label a,
+aside a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 .wrap {
@@ -162,7 +180,7 @@ nav {
     font-family: var(--display);
     font-weight: 700;
     font-size: 1.5rem;
-    color: var(--way-blue);
+    color: var(--way-blue-text);
     letter-spacing: -.01em;
     display: inline-flex;
     align-items: center;
@@ -211,7 +229,7 @@ nav {
 }
 
 .nav-links a:hover {
-    color: var(--way-blue);
+    color: var(--way-blue-text);
 }
 
 .theme-toggle {
@@ -690,7 +708,7 @@ a:focus-visible {
     font-weight: 600;
     letter-spacing: .1em;
     text-transform: uppercase;
-    color: var(--way-blue);
+    color: var(--way-blue-text);
     background: var(--bg-tint);
     border-radius: 999px;
     padding: 5px 14px;
@@ -720,11 +738,19 @@ a:focus-visible {
 
 .research h2,
 .research .eyebrow,
-.research .lede,
+.research .lede {
+    color: #fff !important;
+    font-family: 'Comfortaa-Regular', sans-serif;
+    font-weight: 300 !important;
+}
+
 .partner h2,
 .partner .eyebrow,
 .partner .lede {
-    color: #fff !important;
+    /* #7E93AF (the .partner-box/.cta-box background) is too light for white
+       text to reach WCAG AA (was 3.14:1) — dark text keeps the card's own
+       color/mood instead of darkening the background toward black. */
+    color: #14171A !important;
     font-family: 'Comfortaa-Regular', sans-serif;
     font-weight: 300 !important;
 }
@@ -752,7 +778,10 @@ a:focus-visible {
     border-radius: 0px;
     border: none;
     background-color: #828EA3;
-    color: #fff;
+    /* #828EA3 is too light for white text to reach WCAG AA (was 3.3:1) —
+       dark text keeps the card's own color/mood instead of darkening the
+       background toward black to compensate. */
+    color: #14171A;
     padding: 26px 24px;
 }
 
@@ -762,7 +791,7 @@ a:focus-visible {
     font-weight: 100 !important;
     text-align: left;
     font-size: 1.5rem;
-    color: #fff;
+    color: #14171A;
 }
 
 .research .fact b {
@@ -777,8 +806,6 @@ a:focus-visible {
 .research .btn,
 .partner .btn {
     background-color: rgba(255, 255, 255, 0) !important;
-    color: #fff;
-    border: 1px solid #fff;
     text-transform: uppercase;
     font-family: 'Comfortaa-Regular', sans-serif;
     font-weight: 100 !important;
@@ -786,10 +813,27 @@ a:focus-visible {
     padding: 11px 50px;
 }
 
+/* .research sits over a background photo, not a flat color — left as
+   white-on-white-border since there's no reliable way to verify a fix
+   against arbitrary image content. .partner is a flat #7E93AF background
+   (see .partner above), which white text/border fails WCAG AA against. */
+.research .btn {
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.partner .btn {
+    color: #14171A;
+    border: 1px solid #14171A;
+}
+
 .research .btn:hover,
 .partner .btn:hover {
     background-color: rgba(255, 255, 255, .85) !important;
-    color: #828EA3;
+    /* #828EA3 itself was only 3.31:1 against this hover background —
+       not caught by the automated scan (hover states aren't crawled),
+       found while already in this rule for the fixes above. */
+    color: #6A7790;
 }
 
 /* ---------- Integration Section ---------- */
@@ -850,7 +894,7 @@ a:focus-visible {
 .about-card .role {
     font-family: var(--display);
     font-weight: 600;
-    color: var(--way-blue);
+    color: var(--way-blue-text);
     font-size: 1.3rem;
     margin-bottom: 4px;
 }
@@ -991,7 +1035,11 @@ a:focus-visible {
     min-height: 460px;
     display: flex;
     flex-direction: column;
-    color: #fff;
+    /* #7E93AF is too light for white text to reach WCAG AA (was 3.14:1) —
+       dark text keeps the section's own color/mood instead of darkening
+       the background toward black to compensate. Shared by for-enterprise's
+       CTA section too (class="cta partner"). */
+    color: #14171A;
     text-align: center;
 }
 
@@ -1048,7 +1096,7 @@ footer {
 }
 
 .foot a:hover {
-    color: var(--way-blue);
+    color: var(--way-blue-text);
 }
 
 /* ---------- Media Queries ---------- */
@@ -1155,15 +1203,15 @@ footer {
 }
 
 .foot a[href^="mailto:"]:hover {
-    color: var(--way-blue);
-    text-decoration-color: var(--way-blue);
+    color: var(--way-blue-text);
+    text-decoration-color: var(--way-blue-text);
 }
 
 
 .thanks{min-height:60vh;display:flex;align-items:center;justify-content:center;padding:100px 24px;background:var(--bg-page);text-align:center}
 .thanks-box{max-width:600px;border:2px solid var(--wise-green,#1F8A5F);background:var(--bg-tint);padding:60px 44px}
 .thanks .eyebrow{display:inline-block;font-family:'Quicksand',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--wise-green,#1F8A5F);margin-bottom:14px}
-.thanks h1{font-family:'Quicksand',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.4vw,2.3rem);color:var(--deep-blue,#27406E);margin:0 0 16px;letter-spacing:-.015em}
+.thanks h1{font-family:'Quicksand',sans-serif;font-weight:600;font-size:clamp(1.7rem,3.4vw,2.3rem);color:var(--heading,#27406E);margin:0 0 16px;letter-spacing:-.015em}
 .thanks p{font-family:'Figtree',sans-serif;color:var(--muted);font-size:1.05rem;line-height:1.7;margin:0 0 30px}
 .thanks .btn-home{display:inline-block;font-family:'Figtree',sans-serif;font-weight:600;font-size:.95rem;padding:13px 32px;background:var(--way-blue,#4878C4);color:#fff;text-decoration:none;transition:background .2s}
 .thanks .btn-home:hover{background:var(--btn-primary-hover)}
