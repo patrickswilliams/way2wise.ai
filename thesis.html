@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>way2wise.ai — The research behind the EQ Agent</title>
+<meta name="description" content="Code and Character: Patrick Williams' Pepperdine MSOD thesis on how personalized AI interactions surface emotional self-awareness and self-regulation in software engineers. Read the abstract and download the full thesis.">
+<link rel="canonical" href="https://way2wise.ai/thesis.html">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://way2wise.ai/thesis.html">
+<meta property="og:site_name" content="way2wise.ai">
+<meta property="og:title" content="way2wise.ai — The research behind the EQ Agent">
+<meta property="og:description" content="Code and Character: Patrick Williams' Pepperdine MSOD thesis on how personalized AI interactions surface emotional self-awareness and self-regulation in software engineers. Read the abstract and download the full thesis.">
+<meta property="og:image" content="https://way2wise.ai/assets/w2w-logo.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="way2wise.ai — The research behind the EQ Agent">
+<meta name="twitter:description" content="Code and Character: Patrick Williams' Pepperdine MSOD thesis on how personalized AI interactions surface emotional self-awareness and self-regulation in software engineers. Read the abstract and download the full thesis.">
+<meta name="twitter:image" content="https://way2wise.ai/assets/w2w-logo.png">
+
+<script>
+(function () {
+  var stored = localStorage.getItem('w2w-theme');
+  var theme = stored || 'light';
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
+
+<link rel="icon" type="image/png" href="/favicon-circle/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon-circle/favicon.svg" />
+<link rel="shortcut icon" href="/favicon-circle/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-circle/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Way2Wise.ai" />
+<link rel="manifest" href="/favicon-circle/site.webmanifest" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+.doc-hero{background:var(--deep-blue,#27406E);color:#fff;padding:72px 0 60px}
+.doc-hero .eyebrow{display:inline-block;font-family:'Quicksand',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:14px}
+.doc-hero h1{font-family:'Quicksand',sans-serif;font-weight:600;font-size:clamp(1.9rem,4vw,2.8rem);margin:0 0 12px;letter-spacing:-.015em}
+.doc-hero p{color:#C9D6EE;max-width:620px;margin:0;font-family:'Figtree',sans-serif}
+
+
+.thesis{padding:64px 0 88px;background:var(--bg-page,#fff)}
+.thesis-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:56px;align-items:start}
+.thesis h2{font-family:'Quicksand',sans-serif;font-weight:600;font-size:1.35rem;color:var(--heading);margin:0 0 14px}
+.thesis h2:not(:first-child){margin-top:44px}
+.thesis p,.thesis li{font-family:'Figtree',sans-serif;color:var(--muted);font-size:1.02rem;line-height:1.7}
+.thesis p{margin:0 0 16px}
+.themes{list-style:none;margin:0;padding:0}
+.themes li{padding:14px 0;border-top:1px solid var(--sky-2)}
+.themes li:first-child{border-top:none}
+.themes strong{display:block;font-family:'Quicksand',sans-serif;font-weight:600;color:var(--heading);margin-bottom:2px}
+.themes .share{font-size:.88rem;color:var(--wise-green);font-weight:600}
+.side{border:2px solid var(--wise-green);background:var(--bg-tint);padding:28px 26px}
+.side h2{font-size:1.1rem}
+.side dl{margin:0 0 22px;font-family:'Figtree',sans-serif}
+.side dt{font-family:'Quicksand',sans-serif;font-weight:600;color:var(--heading);font-size:.88rem;margin-top:12px}
+.side dd{margin:2px 0 0;color:var(--muted);font-size:.95rem;line-height:1.5}
+.dl-btn{display:block;text-align:center;font-family:'Figtree',sans-serif;font-weight:600;font-size:.95rem;padding:13px 20px;background:var(--way-blue);color:#fff;text-decoration:none}
+.thesis .dl-btn{color:#fff}
+.dl-btn:hover{background:var(--btn-primary-hover)}
+.dl-btn:focus-visible{outline:3px solid var(--way-blue);outline-offset:3px}
+.cite{font-family:'Figtree',sans-serif;font-size:.92rem;color:var(--muted);background:var(--bg-tint);border-left:3px solid var(--way-blue);padding:14px 16px;line-height:1.6;overflow-wrap:anywhere}
+.thesis a{color:var(--way-blue-text)}
+@media (max-width:840px){.thesis-grid{grid-template-columns:1fr;gap:40px}.thesis{padding:48px 0 68px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="logo" href="index.html" aria-label="way2wise.ai home"><img src="assets/w2w-logo.png" alt="way2wise.ai"></a>
+      <div class="nav-links">
+        <a href="index.html#product">EQ Agent</a>
+        <a href="index.html#markets">Solutions</a>
+        <a href="index.html#research">Research</a>
+        <a href="index.html#about">About</a>
+        <a class="btn btn-primary" href="index.html#partner">Partner with us</a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">🌙</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="doc-hero">
+  <div class="wrap">
+    <span class="eyebrow">Research</span>
+    <h1>Code and Character</h1>
+    <p>Revealing emotional self-awareness and self-regulation in software engineers through personalized AI interactions. The Pepperdine University study the EQ Agent grew from.</p>
+  </div>
+</section>
+
+<section class="thesis">
+  <div class="wrap thesis-grid">
+    <article>
+      <h2>Abstract</h2>
+      <p>As artificial intelligence increasingly automates the technical production of software, human capacity&mdash;specifically emotional intelligence (EQ) centered on emotional self-awareness and self-regulation&mdash;has become a more critical professional differentiator than ever before. This study found limited evidence of an existing AI-mediated EQ development model designed specifically for practicing software engineers and combining personalized reflection, contextual baselines, and qualitative feedback.</p>
+      <p>The qualitative case study involved ten software engineers over a four-week intervention, revealing that while AI serves as an effective &ldquo;external mirror&rdquo; to surface emotional blind spots, its efficacy depends heavily on established trust and personalized context.</p>
+      <p>These findings offer significant implications for scholarship and professional development practice by providing a framework for integrating personalized AI as an adjunct coach to prepare technical professionals for an automated future.</p>
+
+      <h2>Four themes</h2>
+      <ul class="themes">
+        <li><strong>Trust, privacy and the &ldquo;Citation Paradox&rdquo;</strong>Citations built trust for some engineers and caused overload for others. Fear of corporate monitoring could lead people to hold back the truth. <span class="share">9 of 10 participants</span></li>
+        <li><strong>Context first: personal &ldquo;user guides&rdquo;</strong>Engineers needed the AI to understand their real situation before it asked deep emotional questions. <span class="share">7 of 10 participants</span></li>
+        <li><strong>Modality and interface friction</strong>Faster audio and visual maps helped. Mobile auto-scrolling, buffering and hidden controls got in the way. <span class="share">7 of 10 participants</span></li>
+        <li><strong>The shifting engineering role</strong>As AI automates coding, EQ, conflict resolution and self-management become the core engineering skills. <span class="share">8 of 10 participants</span></li>
+      </ul>
+
+      <h2>How the study was done</h2>
+      <p>Ten practicing software engineers took part over four weeks: short podcasts on EQ concepts, weekly reflection sessions with the EQ Agent, and a final 45-minute interview. Themes came from triangulating the AI reflection logs, the weekly reflections and the interviews. No personally identifiable information entered the AI systems, and the study followed Pepperdine University's Institutional Review Board protocol #25-07-2663.</p>
+
+      <h2>Cite this thesis</h2>
+      <p class="cite">Williams, P. (2026). <em>Code and character: Revealing emotional self-awareness and self-regulation in software engineers through personalized AI interactions</em> [Master&rsquo;s thesis, Pepperdine University, Graziadio Business School].</p>
+    </article>
+
+    <aside class="side" aria-labelledby="side-h">
+      <h2 id="side-h">The thesis</h2>
+      <dl>
+        <dt>Author</dt><dd>Patrick Williams</dd>
+        <dt>Degree</dt><dd>M.S. in Organization Development, Pepperdine University, Graziadio Business School</dd>
+        <dt>Advisor</dt><dd>Dr. Kent Rhodes</dd>
+        <dt>Submitted</dt><dd>July 2026</dd>
+        <dt>Length</dt><dd>40 pages</dd>
+      </dl>
+      <a class="dl-btn" href="assets/research/williams-2026-code-and-character.pdf" download>Download the thesis (PDF, 1.8 MB)</a>
+      <p style="margin:18px 0 0;font-size:.92rem">See how the findings shaped the product: <a href="eq-agent.html">the EQ Agent</a> and <a href="architecture.html">how it&rsquo;s built</a>.</p>
+    </aside>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <img class="logo-img-foot" src="assets/w2w-logo.png" alt="way2wise.ai">
+      <p style="margin-top:6px">Santa Cruz, California · <a href="mailto:patrick@way2wise.ai">patrick@way2wise.ai</a></p>
+    </div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="contact.html">Contact</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function updateIcon(theme) {
+    btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    btn.setAttribute('aria-pressed', theme === 'dark');
+  }
+  updateIcon(document.documentElement.getAttribute('data-theme') || 'light');
+  btn.addEventListener('click', function () {
+    var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    var next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('w2w-theme', next);
+    updateIcon(next);
+  });
+})();
+</script>
+
+</body>
+</html>
